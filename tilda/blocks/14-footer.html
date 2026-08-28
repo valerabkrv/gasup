@@ -1,0 +1,79 @@
+<!-- Подвал, кнопка вверх, липкая панель | блок сайта GASUP. Порядок блоков менять можно, но «Стили» должны идти первыми, «Скрипты» — последними. -->
+<div class="gu">
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-in">
+      <a href="#top" class="logo logo-ftr"><img src="https://valerabkrv.github.io/gasup/img/logo-full.png" alt="GASUP — установка ГБО" width="1002" height="662"></a>
+      <nav class="ftr-nav">
+        <a href="#calc">Экономия</a>
+        <a href="#price">Цены</a>
+        <a href="#options">Опции</a>
+        <a href="#service">Обслуживание</a>
+        <a href="#gibdd">ГИБДД</a>
+        <a href="#faq">Вопросы</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <a class="hdr-tel" href="tel:+73510000000">+7 (351) 000-00-00<small>Ежедневно 9:00 — 20:00</small></a>
+    </div>
+    <p class="copy" style="margin-top:26px">© <span id="yr">2026</span> GASUP — установка и обслуживание ГБО в Челябинске. Информация на сайте носит справочный характер и не является публичной офертой. Все цены указаны как «от»: итоговая стоимость зависит от автомобиля и комплектации и фиксируется в договоре после осмотра.</p>
+  </div>
+</footer>
+
+<button class="up" id="up" aria-label="Наверх"><svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+
+<div class="bar" id="bar">
+  <a class="btn btn-ghost btn-sm" href="tel:+73510000000">Позвонить</a>
+  <button class="btn btn-gas btn-sm" data-modal data-service="Расчёт стоимости ГБО">Рассчитать ГБО</button>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"AutoRepair",
+      "@id":"https://gasup.ru/#business",
+      "name":"GASUP — установка ГБО",
+      "description":"Установка и обслуживание газобаллонного оборудования в Челябинске: пропан и метан, ГБО 4 поколения, непосредственный впрыск, ТО и диагностика, помощь с регистрацией в ГИБДД.",
+      "image":"https://gasup.ru/img/logo-full.png",
+      "logo":"https://gasup.ru/img/logo-full.png",
+      "url":"https://gasup.ru/",
+      "telephone":"+7 (351) 000-00-00",
+      "email":"info@gasup.ru",
+      "priceRange":"от 29900 ₽",
+      "currenciesAccepted":"RUB",
+      "address":{"@type":"PostalAddress","addressLocality":"Челябинск","addressRegion":"Челябинская область","addressCountry":"RU"},
+      "areaServed":[{"@type":"City","name":"Челябинск"},{"@type":"AdministrativeArea","name":"Челябинская область"}],
+      "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"09:00","closes":"20:00"}],
+      "hasOfferCatalog":{
+        "@type":"OfferCatalog","name":"Услуги по ГБО",
+        "itemListElement":[
+          {"@type":"Offer","name":"Установка ГБО, 4 цилиндра","priceCurrency":"RUB","price":"29900","priceSpecification":{"@type":"PriceSpecification","minPrice":"29900","priceCurrency":"RUB"}},
+          {"@type":"Offer","name":"Установка ГБО, 6 цилиндров","priceCurrency":"RUB","price":"44900"},
+          {"@type":"Offer","name":"Установка ГБО, 8 цилиндров","priceCurrency":"RUB","price":"54900"},
+          {"@type":"Offer","name":"ГБО на непосредственный впрыск","priceCurrency":"RUB","price":"79900"},
+          {"@type":"Offer","name":"Установка ГБО на метане","priceCurrency":"RUB","price":"110000"},
+          {"@type":"Offer","name":"ТО ГБО","priceCurrency":"RUB","price":"1500"},
+          {"@type":"Offer","name":"Диагностика ГБО","priceCurrency":"RUB","price":"800"},
+          {"@type":"Offer","name":"Помощь с оформлением ГБО в ГИБДД","priceCurrency":"RUB","price":"7000"}
+        ]
+      }
+    },
+    {
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"Сколько стоит установка ГБО в Челябинске?","acceptedAnswer":{"@type":"Answer","text":"Установка ГБО на 4-цилиндровый двигатель с распределённым впрыском — от 29 900 ₽ под ключ, на 6 цилиндров — от 44 900 ₽, на 8 — от 54 900 ₽. Для непосредственного впрыска расчёт индивидуальный — от 79 900 ₽."}},
+        {"@type":"Question","name":"За сколько окупается ГБО?","acceptedAnswer":{"@type":"Answer","text":"При пробеге около 2 000 км в месяц и расходе 10 л на 100 км комплект обычно окупается за 6–10 месяцев. При больших пробегах окупаемость сокращается до 3–4 месяцев."}},
+        {"@type":"Question","name":"Вредно ли ГБО для двигателя?","acceptedAnswer":{"@type":"Answer","text":"Правильно подобранное и настроенное оборудование не вредит мотору: газ горит чище бензина, меньше нагара. Проблемы возникают при экономии на комплекте, кустарном монтаже и пропущенных ТО."}},
+        {"@type":"Question","name":"Нужно ли регистрировать ГБО в ГИБДД?","acceptedAnswer":{"@type":"Answer","text":"Да, установка ГБО — внесение изменений в конструкцию: нужна предварительная экспертиза, документы от сервиса, техосмотр с протоколом проверки безопасности и отметка в СТС. Помощь с оформлением — от 7 000 ₽ без учёта госпошлин."}},
+        {"@type":"Question","name":"Сколько времени занимает установка ГБО?","acceptedAnswer":{"@type":"Answer","text":"Стандартный комплект на распределённый впрыск устанавливается за один день, обычно 6–8 часов вместе с настройкой."}},
+        {"@type":"Question","name":"Пропан или метан — что выбрать?","acceptedAnswer":{"@type":"Answer","text":"Пропан дешевле в установке и подходит большинству легковых авто. Метан дороже на старте — от 110 000 ₽, но топливо заметно дешевле, поэтому он выгоден при больших пробегах и в коммерческом транспорте."}},
+        {"@type":"Question","name":"Можно ли поставить ГБО на непосредственный впрыск?","acceptedAnswer":{"@type":"Answer","text":"Да, для GDI, FSI, TSI и подобных систем существуют отдельные комплекты, сохраняющие работу бензиновых форсунок. Цена от 79 900 ₽ и считается по коду двигателя."}},
+        {"@type":"Question","name":"Падает ли мощность на газе?","acceptedAnswer":{"@type":"Answer","text":"На правильно настроенном оборудовании разница почти незаметна в обычной езде. Расход в литрах выше примерно на 10%. Если после установки в другом сервисе машина «тупит», нужна диагностика — от 800 ₽."}},
+        {"@type":"Question","name":"Как часто нужно обслуживать ГБО?","acceptedAnswer":{"@type":"Answer","text":"Регламентное ТО — каждые 10–12 тысяч километров: замена фильтров, проверка герметичности и коррекция настроек. Стоимость от 1 500 ₽."}}
+      ]
+    }
+  ]
+}
+</script>
+</div>

@@ -1,0 +1,183 @@
+<!-- Скрипты сайта GASUP: калькулятор, прайс, меню, появление секций.
+     Этот блок должен быть ПОСЛЕДНИМ на странице. -->
+<script>
+(function(){
+  var $=function(s,c){return (c||document).querySelector(s)};
+  var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+  var nf = new Intl.NumberFormat('ru-RU');
+
+  $('#yr').textContent = new Date().getFullYear();
+
+  /* ---- header / sticky bar / up ---- */
+  var hdr=$('#hdr'), bar=$('#bar'), up=$('#up');
+  function onScroll(){
+    var y=window.pageYOffset;
+    hdr.classList.toggle('stuck', y>10);
+    bar.classList.toggle('show', y>560);
+    up.classList.toggle('show', y>900);
+  }
+  up.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+
+  /* ---- mobile menu ---- */
+  var mob=$('#mob');
+  $('#burger').addEventListener('click',function(){mob.classList.add('open');document.body.style.overflow='hidden'});
+  function closeMob(){mob.classList.remove('open');document.body.style.overflow=''}
+  $('#mobX').addEventListener('click',closeMob);
+  $$('#mob a').forEach(function(a){a.addEventListener('click',closeMob)});
+
+  /* ---- modal ---- */
+  var modal=$('#modal');
+  function openModal(service){
+    $('#modalService').value=service||'';
+    $('#modalTitle').textContent=service?service:'Рассчитать стоимость ГБО';
+    modal.classList.add('open');document.body.style.overflow='hidden';
+    setTimeout(function(){var i=$('input[type=tel]',modal); if(i) i.focus()},260);
+  }
+  function closeModal(){modal.classList.remove('open');document.body.style.overflow=''}
+  $$('[data-modal]').forEach(function(b){
+    b.addEventListener('click',function(){closeMob();openModal(b.getAttribute('data-service'))});
+  });
+  $$('[data-close]').forEach(function(b){b.addEventListener('click',closeModal)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeModal();closeMob()}});
+
+  /* ---- phone mask ---- */
+  $$('input[type=tel]').forEach(function(inp){
+    inp.addEventListener('input',function(){
+      var d=inp.value.replace(/\D/g,'');
+      if(d[0]==='8')d='7'+d.slice(1);
+      if(d[0]!=='7')d='7'+d;
+      d=d.slice(0,11);
+      var o='+7';
+      if(d.length>1)o+=' ('+d.slice(1,4);
+      if(d.length>=5)o+=') '+d.slice(4,7);
+      if(d.length>=8)o+='-'+d.slice(7,9);
+      if(d.length>=10)o+='-'+d.slice(9,11);
+      inp.value=o;
+      inp.style.borderColor='';
+    });
+  });
+
+  /* ---- forms (подключить отправку в CRM / Telegram / Tilda Forms) ---- */
+  $$('[data-form]').forEach(function(f){
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var phone=f.querySelector('input[type=tel]');
+      if(phone.value.replace(/\D/g,'').length<11){phone.focus();phone.style.borderColor='#ff5252';return}
+      /* TODO: fetch('/your-endpoint',{method:'POST',body:new FormData(f)}) */
+      var ok=f.parentNode.querySelector('[data-ok]');
+      f.style.display='none';
+      if(ok)ok.classList.add('show');
+      if(window.ym)try{ym(0,'reachGoal','lead')}catch(err){}
+    });
+  });
+
+  /* ---- калькулятор экономии ---- */
+  var r1=$('#r1'),r2=$('#r2'),r3=$('#r3'),r4=$('#r4'),r5=$('#r5');
+  var GAS_OVERRUN=1.10; /* на газе расход в литрах выше примерно на 10% */
+  function calc(){
+    var lp100=+r1.value, km=+r2.value, pb=+r3.value, pg=+r4.value, kit=+r5.value;
+    $('#v1').textContent=lp100;
+    $('#v2').textContent=nf.format(km);
+    $('#v3').textContent=pb;
+    $('#v4').textContent=pg;
+    $('#v5').textContent=nf.format(kit);
+
+    var litersPetrol=lp100*km/100;
+    var costPetrol=litersPetrol*pb;
+    var costGas=litersPetrol*GAS_OVERRUN*pg;
+    var saveMonth=Math.max(0,costPetrol-costGas);
+
+    $('#oFuel').textContent=nf.format(Math.round(costPetrol))+' ₽';
+    $('#oMonth').textContent=nf.format(Math.round(saveMonth))+' ₽';
+    $('#oYear').textContent=nf.format(Math.round(saveMonth*12))+' ₽';
+
+    var pay=saveMonth>0?kit/saveMonth:0;
+    var el=$('#oPay');
+    if(!pay||pay>60){el.textContent='> 5 лет';}
+    else if(pay<1){el.textContent='< 1 мес.';}
+    else{
+      var m=Math.round(pay);
+      var t=m%10, h=m%100, w='месяцев';
+      if(t===1&&h!==11)w='месяц'; else if(t>=2&&t<=4&&(h<10||h>=20))w='месяца';
+      el.textContent=m+' '+w;
+    }
+  }
+  [r1,r2,r3,r4,r5].forEach(function(r){r.addEventListener('input',calc)});
+  calc();
+
+  /* ---- переключатель цилиндров ---- */
+  var tg=$('#cylToggle'), knob=$('#knob'), tbs=$$('button',tg);
+  function moveKnob(btn){knob.style.left=btn.offsetLeft+'px';knob.style.width=btn.offsetWidth+'px'}
+  function setCyl(btn){
+    tbs.forEach(function(b){b.classList.toggle('on',b===btn);b.setAttribute('aria-selected',b===btn)});
+    moveKnob(btn);
+    var c=btn.getAttribute('data-cyl');
+    $$('.plan-prices b').forEach(function(b){
+      var v=b.getAttribute('data-p'+c);
+      if(!v||b.textContent===v)return;
+      b.style.transition='opacity .18s,transform .18s';
+      b.style.opacity='0';b.style.transform='translateY(-7px)';
+      setTimeout(function(){
+        b.textContent=v;
+        b.style.opacity='1';b.style.transform='none';
+      },180);
+    });
+    var word=(c==='4')?'цилиндра':'цилиндров';
+    $$('.cyl-cap').forEach(function(s){s.textContent='Под ключ, '+c+' '+word});
+  }
+  tbs.forEach(function(b){b.addEventListener('click',function(){setCyl(b)})});
+  moveKnob(tbs[0]);
+  window.addEventListener('resize',function(){moveKnob($('button.on',tg))});
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){moveKnob($('button.on',tg))});
+
+  /* ---- reveal ---- */
+  var rvs=$$('.rv');
+  function revealPass(){
+    var h=window.innerHeight;
+    for(var i=rvs.length-1;i>=0;i--){
+      var el=rvs[i], r=el.getBoundingClientRect();
+      if(r.top<h*0.92){
+        var sib=Array.prototype.indexOf.call(el.parentNode.children,el);
+        el.style.transitionDelay=Math.min(sib,6)*70+'ms';
+        el.classList.add('in');
+        rvs.splice(i,1);
+      }
+    }
+  }
+
+  /* ---- счётчики ---- */
+  var cnts=$$('[data-count]');
+  function countPass(){
+    var h=window.innerHeight;
+    for(var i=cnts.length-1;i>=0;i--){
+      var el=cnts[i], r=el.getBoundingClientRect();
+      if(r.top<h*0.9&&r.bottom>0){
+        (function(el){
+          var to=+el.getAttribute('data-count'), suf=el.getAttribute('data-suffix')||'';
+          var t0=null, dur=1400;
+          function tick(t){
+            if(!t0)t0=t;
+            var k=Math.min((t-t0)/dur,1), e=1-Math.pow(1-k,3);
+            var v=Math.round(to*e);
+            el.textContent=(v>=1000?nf.format(v):v)+suf;
+            if(k<1)requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+        })(el);
+        cnts.splice(i,1);
+      }
+    }
+  }
+
+  var ticking=false;
+  function raf(){
+    if(ticking)return;ticking=true;
+    requestAnimationFrame(function(){onScroll();revealPass();countPass();ticking=false});
+  }
+  window.addEventListener('scroll',raf,{passive:true});
+  window.addEventListener('resize',raf);
+  window.addEventListener('load',raf);
+  onScroll();revealPass();countPass();
+  setTimeout(raf,400);
+})();
+</script>

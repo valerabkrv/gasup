@@ -1,0 +1,50 @@
+<!-- Калькулятор экономии на газе | блок сайта GASUP. Порядок блоков менять можно, но «Стили» должны идти первыми, «Скрипты» — последними. -->
+<div class="gu">
+<section class="sec" id="calc">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Калькулятор экономии</span>
+      <h2>Сколько вы отдаёте <span class="gr">лишнего</span> за бензин</h2>
+      <p class="lead">Газ стоит примерно вдвое дешевле бензина. Подвиньте ползунки под свой режим езды — посчитаем экономию и срок окупаемости комплекта.</p>
+    </div>
+    <div class="calc">
+      <div class="card rv">
+        <div class="field">
+          <label>Расход бензина, л на 100 км <b><span id="v1">10</span> л</b></label>
+          <input type="range" id="r1" min="5" max="25" step="0.5" value="10">
+        </div>
+        <div class="field">
+          <label>Пробег в месяц, км <b><span id="v2">2 000</span> км</b></label>
+          <input type="range" id="r2" min="300" max="8000" step="100" value="2000">
+        </div>
+        <div class="field">
+          <label>Цена бензина, ₽ за литр <b><span id="v3">60</span> ₽</b></label>
+          <input type="range" id="r3" min="40" max="90" step="1" value="60">
+        </div>
+        <div class="field">
+          <label>Цена пропана, ₽ за литр <b><span id="v4">29</span> ₽</b></label>
+          <input type="range" id="r4" min="18" max="45" step="1" value="29">
+        </div>
+        <div class="field">
+          <label>Стоимость комплекта с установкой, ₽ <b><span id="v5">34 900</span> ₽</b></label>
+          <input type="range" id="r5" min="29900" max="120000" step="1000" value="34900">
+        </div>
+      </div>
+      <div class="card calc-out rv">
+        <span class="cap">Экономия за год</span>
+        <div class="big gr" id="oYear">0 ₽</div>
+        <div class="calc-split">
+          <div><b id="oMonth">0 ₽</b><span>в месяц</span></div>
+          <div><b id="oFuel">0 ₽</b><span>сейчас тратите в месяц</span></div>
+        </div>
+        <div class="payback">
+          <b id="oPay">0 мес.</b>
+          <span>окупаемость установки при таком пробеге</span>
+        </div>
+        <p class="hint" style="margin-top:16px">Расчёт ориентировочный. Учтено, что на газе расход выше примерно на 10% — это заложено в формулу. Реальные цифры зависят от стиля езды, состояния двигателя и цен на АЗС.</p>
+        <button class="btn btn-gas btn-wide" style="margin-top:18px" data-modal data-service="Расчёт экономии">Хочу такую экономию</button>
+      </div>
+    </div>
+  </div>
+</section>
+</div>

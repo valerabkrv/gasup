@@ -1,0 +1,20 @@
+<!-- Своя форма-модалка (не нужна, если ставим поп-ап Тильды) | блок сайта GASUP. Порядок блоков менять можно, но «Стили» должны идти первыми, «Скрипты» — последними. -->
+<div class="gu">
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-bd" data-close></div>
+  <div class="modal-in">
+    <button class="modal-x" data-close aria-label="Закрыть">✕</button>
+    <h3 id="modalTitle" style="margin-bottom:8px;max-width:88%">Рассчитать стоимость ГБО</h3>
+    <p style="color:var(--tx-2);font-size:15px">Оставьте номер — перезвоним, уточним авто и назовём цену.</p>
+    <form class="form-row" data-form>
+      <input type="hidden" name="service" id="modalService">
+      <input class="inp" type="text" name="name" placeholder="Как вас зовут" autocomplete="name">
+      <input class="inp" type="tel" name="phone" placeholder="+7 (___) ___-__-__" required autocomplete="tel">
+      <input class="inp" type="text" name="car" placeholder="Марка, модель, двигатель" autocomplete="off">
+      <button class="btn btn-gas btn-wide" type="submit">Получить расчёт</button>
+      <p class="consent">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+    </form>
+    <div class="ok" data-ok>Заявка принята. Перезвоним с расчётом — обычно в течение часа в рабочее время.</div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,86 @@
+<!-- Прайс на установку ГБО | блок сайта GASUP. Порядок блоков менять можно, но «Стили» должны идти первыми, «Скрипты» — последними. -->
+<div class="gu">
+<section class="sec" id="price" style="background:var(--bg-2);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Цены на установку ГБО</span>
+      <h2>Прайс на <span class="gr">газобаллонное оборудование</span></h2>
+      <p class="lead">Три комплектации под разный бюджет и мощность двигателя. Выберите количество цилиндров — цены пересчитаются.</p>
+    </div>
+
+    <div class="toggle rv" id="cylToggle" role="tablist" aria-label="Количество цилиндров">
+      <span class="knob" id="knob"></span>
+      <button class="on" data-cyl="4" role="tab" aria-selected="true">4 цилиндра</button>
+      <button data-cyl="6" role="tab" aria-selected="false">6 цилиндров</button>
+      <button data-cyl="8" role="tab" aria-selected="false">8 цилиндров</button>
+    </div>
+
+    <div class="price-grid">
+      <article class="plan rv">
+        <h3>GASUP START</h3>
+        <p class="plan-for">Массовые легковые авто с распределённым впрыском</p>
+        <div class="plan-prices">
+          <div><small class="cyl-cap">Под ключ, 4 цилиндра</small><b data-p4="от 29 900 ₽" data-p6="от 44 900 ₽" data-p8="от 54 900 ₽">от 29 900 ₽</b></div>
+        </div>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Надёжный базовый комплект ГБО 4 поколения</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Баллон согласованного объёма в нишу запаски</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Стандартный монтаж и настройка на стенде</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Первое ТО через 1 000 км — бесплатно</li>
+        </ul>
+        <button class="btn btn-ghost btn-wide" data-modal data-service="GASUP START">Уточнить цену на моё авто</button>
+      </article>
+
+      <article class="plan hot rv">
+        <span class="plan-tag">Выбирают чаще</span>
+        <h3>GASUP OPTIMA</h3>
+        <p class="plan-for">Оптимум по цене и ресурсу — для ежедневной езды</p>
+        <div class="plan-prices">
+          <div><small class="cyl-cap">Под ключ, 4 цилиндра</small><b data-p4="от 34 900 ₽" data-p6="от 54 900 ₽" data-p8="от 69 900 ₽">от 34 900 ₽</b></div>
+        </div>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Быстрые форсунки и производительный редуктор</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>ВЗУ в лючок бензобака — заправка как обычно</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Улучшенные магистрали и монтажные материалы</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Расширенная настройка под ваш двигатель</li>
+        </ul>
+        <button class="btn btn-gas btn-wide" data-modal data-service="GASUP OPTIMA">Уточнить цену на моё авто</button>
+      </article>
+
+      <article class="plan rv">
+        <h3>GASUP PRO</h3>
+        <p class="plan-for">Мощные и премиальные двигатели, большие пробеги</p>
+        <div class="plan-prices">
+          <div><small class="cyl-cap">Под ключ, 4 цилиндра</small><b data-p4="от 42 900 ₽" data-p6="от 64 900 ₽" data-p8="от 89 900 ₽">от 42 900 ₽</b></div>
+        </div>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Премиальные компоненты с запасом по мощности</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Точная калибровка на всех режимах</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Вариатор УОЗ и датчик уровня газа в комплекте</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Приоритетная запись на обслуживание</li>
+        </ul>
+        <button class="btn btn-ghost btn-wide" data-modal data-service="GASUP PRO">Уточнить цену на моё авто</button>
+      </article>
+    </div>
+
+    <div class="special">
+      <article class="spec rv">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2v6m0 0 3-3m-3 3L9 5"/><path d="M5 12h14v9H5z"/><path d="M9 16h6"/></svg></div>
+        <h3>Непосредственный впрыск: GDI, FSI, TSI, TFSI</h3>
+        <div class="spec-price gr">от 79 900 ₽</div>
+        <p>Для таких двигателей нужен другой комплект и отдельный расчёт: считаем по марке, модели, году и коду двигателя. Цена может быть выше — скажем честно до начала работ.</p>
+        <button class="btn btn-ghost" data-modal data-service="ГБО на непосредственный впрыск">Рассчитать по коду двигателя</button>
+      </article>
+      <article class="spec rv">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3c3 3.5 4.5 6 4.5 8.5A4.5 4.5 0 0 1 12 16a4.5 4.5 0 0 1-4.5-4.5C7.5 9 9 6.5 12 3z"/><path d="M8 20h8"/></svg></div>
+        <h3>Метан (КПГ) — максимальная экономия на литре</h3>
+        <div class="spec-price gr">от 110 000 ₽</div>
+        <p>Дороже пропана на входе, но топливо заметно дешевле — выгодно при больших пробегах и для коммерческого транспорта. Считаем окупаемость по вашему километражу.</p>
+        <button class="btn btn-ghost" data-modal data-service="ГБО на метане">Посчитать окупаемость метана</button>
+      </article>
+    </div>
+
+    <p class="hint rv" style="margin-top:22px;max-width:80ch">Все цены указаны как «от» и зависят от двигателя, типа впрыска, мощности, бренда оборудования, типа и объёма баллона, места установки ВЗУ и объёма дополнительных работ. Итоговую стоимость фиксируем в договоре после осмотра автомобиля.</p>
+  </div>
+</section>
+</div>
