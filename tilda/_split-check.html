@@ -1,0 +1,1095 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Tilda split check — GASUP</title><style>
+*{box-sizing:content-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#000;background:#fff;font-size:16px;line-height:1.55}
+img{max-width:100%;height:auto;border:0}
+a{color:#ff8562;text-decoration:none}
+h1,h2,h3,h4{font-weight:400;margin:0;font-family:Arial}
+ul,li{list-style:none;margin:0;padding:0}
+p{margin:0}
+input,button,textarea,select{font-family:Arial;font-size:16px;color:#000;background:#fff;border:1px solid #ccc}
+</style></head><body class="t-body"><div id="allrecords" class="t-records">
+<div class="t-rec" data-record-type="123">
+<!-- Стили и шрифты сайта GASUP. Этот блок должен быть ПЕРВЫМ на странице.
+     Ничего не выводит — только подключает шрифты и CSS. -->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07090b;
+  --bg-2:#0b0e12;
+  --panel:#11151a;
+  --panel-2:#171d24;
+  --line:rgba(255,255,255,.09);
+  --line-2:rgba(255,255,255,.17);
+  --tx:#edf2f6;
+  --tx-2:#a2adb9;
+  --tx-3:#6b7683;
+  --gas:#6cc024;
+  --gas-2:#8fe13b;
+  --gas-3:#b6f45f;
+  --warn:#ffb020;
+  --grad:linear-gradient(135deg,#6cc024 0%,#a3e635 100%);
+  --grad-soft:linear-gradient(135deg,rgba(108,192,36,.16),rgba(163,230,53,.06));
+  --r-s:12px; --r-m:18px; --r-l:26px; --r-xl:34px;
+  --shadow:0 26px 64px -24px rgba(0,0,0,.85);
+  --glow:0 14px 40px -12px rgba(108,192,36,.55);
+  --maxw:1240px;
+  --pad:clamp(18px,4vw,40px);}
+.gu *, .gu *::before, .gu *::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--tx);
+  font-family:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  font-size:17px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+.gu img, .gu svg{max-width:100%;display:block}
+.gu a{color:inherit;text-decoration:none}
+.gu button, .gu input, .gu select, .gu textarea{font:inherit;color:inherit}
+.gu h1, .gu h2, .gu h3, .gu h4{font-family:'Unbounded',sans-serif;font-weight:700;line-height:1.08;letter-spacing:-.025em;margin:0}
+.gu h1{font-size:clamp(31px,5.4vw,66px)}
+.gu h2{font-size:clamp(26px,3.8vw,48px)}
+.gu h3{font-size:clamp(18px,1.9vw,24px)}
+.gu p{margin:0}
+.gu .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+.gu section{position:relative}
+.gu .sec{padding:clamp(62px,8.5vw,120px) 0}
+.gu .sec-head{max-width:76ch;margin-bottom:clamp(30px,4vw,54px)}
+.gu .eyebrow{display:inline-flex;align-items:center;gap:9px;
+  font-size:12.5px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;
+  color:var(--gas-2);margin-bottom:16px;}
+.gu .eyebrow::before{content:"";width:26px;height:2px;background:var(--grad);border-radius:2px}
+.gu .lead{color:var(--tx-2);font-size:clamp(15.5px,1.4vw,18.5px);max-width:66ch;margin-top:16px}
+.gu .gr{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.gu .hint{font-size:12.5px;color:var(--tx-3);line-height:1.5}
+.gu .btn{--bh:58px;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  height:var(--bh);padding:0 30px;border-radius:999px;border:0;cursor:pointer;
+  font-weight:800;font-size:15.5px;white-space:nowrap;position:relative;overflow:hidden;
+  transition:transform .25s cubic-bezier(.2,.8,.3,1),box-shadow .25s,background .25s,border-color .25s,color .25s;}
+.gu .btn:active{transform:scale(.97)}
+.gu .btn-gas{background:var(--grad);color:#0a1403;box-shadow:var(--glow)}
+.gu .btn-gas:hover{transform:translateY(-3px);box-shadow:0 22px 52px -12px rgba(143,225,59,.62)}
+.gu .btn-gas::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(100deg,transparent 20%,rgba(255,255,255,.5) 50%,transparent 80%);
+  transform:translateX(-130%);}
+.gu .btn-gas:hover::after{transform:translateX(130%);transition:transform .8s ease}
+.gu .btn-ghost{background:rgba(255,255,255,.05);border:1px solid var(--line-2);color:var(--tx);backdrop-filter:blur(10px)}
+.gu .btn-ghost:hover{background:rgba(255,255,255,.1);transform:translateY(-3px);border-color:rgba(143,225,59,.5)}
+.gu .btn-sm{--bh:46px;padding:0 22px;font-size:14px}
+.gu .btn-wide{width:100%}
+.gu .hdr{position:fixed;inset:0 0 auto 0;z-index:90;border-bottom:1px solid transparent;
+  transition:background .35s,box-shadow .35s,border-color .35s,backdrop-filter .35s}
+.gu .hdr.stuck{background:rgba(7,9,11,.84);backdrop-filter:blur(18px) saturate(160%);border-bottom-color:var(--line);box-shadow:0 10px 40px -26px #000}
+.gu .hdr-in{display:flex;align-items:center;gap:22px;height:78px}
+.gu .logo{display:flex;align-items:center;flex:none}
+.gu .logo img{height:34px;width:auto;transition:filter .3s}
+.gu .logo:hover img{filter:drop-shadow(0 6px 20px rgba(108,192,36,.5))}
+.gu .logo-ftr img{height:60px}
+.gu .nav{display:flex;gap:2px;margin-left:auto}
+.gu .nav a{padding:9px 14px;border-radius:999px;font-size:14.5px;font-weight:600;color:var(--tx-2);white-space:nowrap;transition:color .2s,background .2s}
+.gu .nav a:hover{color:var(--tx);background:rgba(255,255,255,.07)}
+.gu .hdr-cta{display:flex;align-items:center;gap:14px}
+.gu .hdr-tel{font-family:'Unbounded';font-weight:600;font-size:15.5px;letter-spacing:-.02em;white-space:nowrap}
+.gu .hdr-tel small{display:block;font-family:'Manrope';font-weight:700;font-size:11px;color:var(--gas-2);letter-spacing:.04em}
+.gu .burger{display:none;width:46px;height:46px;border-radius:13px;border:1px solid var(--line-2);background:rgba(255,255,255,.05);align-items:center;justify-content:center;cursor:pointer;margin-left:auto}
+.gu .burger span{display:block;width:19px;height:2px;background:var(--tx);border-radius:2px;position:relative}
+.gu .burger span::before, .gu .burger span::after{content:"";position:absolute;left:0;width:19px;height:2px;background:var(--tx);border-radius:2px}
+.gu .burger span::before{top:-6px}
+.gu .burger span::after{top:6px}
+.gu .mob{position:fixed;inset:0;z-index:95;background:rgba(7,9,11,.97);backdrop-filter:blur(20px);display:none;flex-direction:column;padding:22px var(--pad) 40px}
+.gu .mob.open{display:flex}
+.gu .mob-top{display:flex;width:100%;justify-content:space-between;align-items:center;height:56px}
+.gu .mob nav{display:flex;flex-direction:column;gap:0;margin-top:22px;overflow-y:auto}
+.gu .mob nav a{font-family:'Unbounded';font-size:21px;font-weight:600;padding:13px 0;border-bottom:1px solid var(--line)}
+.gu .mob .btn{margin-top:24px;flex:none}
+.gu .x{width:46px;height:46px;border-radius:13px;border:1px solid var(--line-2);background:none;font-size:22px;cursor:pointer;line-height:1}
+.gu .hero{min-height:100svh;display:flex;align-items:center;padding:120px 0 56px;overflow:hidden}
+.gu .hero-bg{position:absolute;inset:0;z-index:-2;overflow:hidden;background:
+  radial-gradient(120% 80% at 78% 8%,rgba(108,192,36,.20),transparent 58%),
+  radial-gradient(90% 70% at 4% 92%,rgba(108,192,36,.10),transparent 62%),
+  var(--bg)}
+.gu .hero-grid{position:absolute;inset:-40% -20% -20%;z-index:-2;opacity:.5;
+  background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+  background-size:64px 64px;
+  transform:perspective(700px) rotateX(58deg);
+  transform-origin:50% 0;
+  animation:gridrun 22s linear infinite;
+  -webkit-mask-image:linear-gradient(to bottom,transparent,#000 28%,#000 60%,transparent 92%);
+  mask-image:linear-gradient(to bottom,transparent,#000 28%,#000 60%,transparent 92%);}
+@keyframes gridrun{to{background-position:0 64px,0 0}}
+.gu .blob{position:absolute;z-index:-1;border-radius:50%;filter:blur(110px);pointer-events:none}
+.gu .blob.b1{width:52vw;height:52vw;max-width:680px;max-height:680px;background:#6cc024;opacity:.24;top:-14%;right:-8%;animation:float1 15s ease-in-out infinite}
+.gu .blob.b2{width:46vw;height:46vw;max-width:560px;max-height:560px;background:#2a7d1a;opacity:.20;bottom:-22%;left:-12%;animation:float2 19s ease-in-out infinite}
+@keyframes float1{50%{transform:translate3d(-5%,7%,0) scale(1.09)}}
+@keyframes float2{50%{transform:translate3d(7%,-6%,0) scale(1.12)}}
+.gu .hero-in{max-width:940px;position:relative}
+.gu .pill{display:inline-flex;align-items:center;gap:9px;padding:9px 17px 9px 11px;border-radius:999px;
+  background:rgba(255,255,255,.06);border:1px solid var(--line-2);backdrop-filter:blur(12px);
+  font-size:13.5px;font-weight:700;color:var(--tx-2);margin-bottom:24px;}
+.gu .dot{width:8px;height:8px;border-radius:50%;background:var(--gas-2);box-shadow:0 0 0 0 rgba(143,225,59,.6);animation:pulse 2.2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 11px rgba(143,225,59,0)}100%{box-shadow:0 0 0 0 rgba(143,225,59,0)}}
+.gu .hero h1{margin-bottom:20px}
+.gu .hero h1 .w{display:inline-block;opacity:0;transform:translateY(26px) rotate(2deg);animation:wordup .9s cubic-bezier(.2,.8,.3,1) forwards}
+@keyframes wordup{to{opacity:1;transform:none}}
+.gu .hero-sub{font-size:clamp(15.5px,1.65vw,19.5px);color:#ccd5de;max-width:62ch;margin-bottom:10px}
+.gu .hero-note{font-size:14px;color:var(--tx-3);margin-bottom:30px;max-width:62ch}
+.gu .hero-btns{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.gu .hero-tel{display:flex;flex-direction:column;gap:1px;padding-left:8px}
+.gu .hero-tel span{font-size:12px;color:var(--tx-3);font-weight:700}
+.gu .hero-tel a{font-family:'Unbounded';font-size:19px;font-weight:600;letter-spacing:-.02em}
+.gu .hero-tel a:hover{color:var(--gas-2)}
+.gu .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:clamp(42px,6vw,72px);background:var(--line);border:1px solid var(--line);border-radius:var(--r-l);overflow:hidden;backdrop-filter:blur(14px)}
+.gu .stat{background:rgba(14,18,23,.74);padding:24px 22px}
+.gu .stat b{display:block;font-family:'Unbounded';font-size:clamp(25px,3.3vw,38px);font-weight:700;letter-spacing:-.025em;word-spacing:.12em;line-height:1}
+.gu .stat span{display:block;margin-top:8px;font-size:13.5px;color:var(--tx-2);font-weight:600;line-height:1.4}
+.gu .mq{border-block:1px solid var(--line);background:linear-gradient(90deg,rgba(108,192,36,.13),rgba(108,192,36,.04),rgba(108,192,36,.13));overflow:hidden;padding:15px 0}
+.gu .mq-track{display:flex;gap:34px;width:max-content;animation:slide 34s linear infinite}
+.gu .mq-track span{font-family:'Unbounded';font-size:14.5px;font-weight:600;color:var(--tx-2);display:flex;align-items:center;gap:34px;white-space:nowrap}
+.gu .mq-track span::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--gas)}
+@keyframes slide{to{transform:translateX(-50%)}}
+.gu .card{background:linear-gradient(180deg,var(--panel) 0%,var(--bg-2) 100%);border:1px solid var(--line);border-radius:var(--r-xl);padding:clamp(24px,3.2vw,40px)}
+.gu .ic{width:50px;height:50px;border-radius:15px;display:grid;place-items:center;margin-bottom:18px;
+  background:rgba(108,192,36,.13);border:1px solid rgba(143,225,59,.28)}
+.gu .ic svg{width:23px;height:23px;stroke:var(--gas-2);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.gu .calc{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.6vw,32px);align-items:stretch}
+.gu .field{margin-bottom:22px}
+.gu .field:last-child{margin-bottom:0}
+.gu .field label{display:flex;justify-content:space-between;align-items:baseline;gap:14px;font-size:14.5px;font-weight:700;color:var(--tx-2);margin-bottom:12px}
+.gu .field label b{font-family:'Unbounded';font-size:18px;color:var(--tx);font-weight:600;white-space:nowrap}
+.gu input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:99px;background:rgba(255,255,255,.1);outline:none}
+.gu input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:var(--grad);cursor:grab;box-shadow:0 4px 14px rgba(108,192,36,.6),0 0 0 4px rgba(108,192,36,.16)}
+.gu input[type=range]::-moz-range-thumb{width:22px;height:22px;border:0;border-radius:50%;background:#7ccc2c;cursor:grab}
+.gu .calc-out{background:radial-gradient(120% 100% at 100% 0%,rgba(108,192,36,.22),transparent 58%),linear-gradient(180deg,var(--panel-2),var(--bg-2));
+  border:1px solid rgba(143,225,59,.3);display:flex;flex-direction:column;justify-content:center}
+.gu .calc-out .cap{font-size:13.5px;color:var(--tx-2);font-weight:700;letter-spacing:.02em}
+.gu .calc-out .big{font-family:'Unbounded';font-size:clamp(36px,5.6vw,62px);font-weight:800;letter-spacing:-.045em;line-height:1;margin:6px 0 4px}
+.gu .calc-split{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:22px 0}
+.gu .calc-split div{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:var(--r-m);padding:15px 17px}
+.gu .calc-split b{display:block;font-family:'Unbounded';font-size:21px;letter-spacing:-.025em}
+.gu .calc-split span{font-size:12.5px;color:var(--tx-3);font-weight:700}
+.gu .payback{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:var(--r-m);background:rgba(108,192,36,.1);border:1px solid rgba(143,225,59,.3)}
+.gu .payback b{font-family:'Unbounded';font-size:20px;letter-spacing:-.02em;color:var(--gas-3);white-space:nowrap}
+.gu .payback span{font-size:13px;color:var(--tx-2);font-weight:600;line-height:1.4}
+.gu .toggle{display:inline-flex;padding:5px;gap:4px;border-radius:999px;background:var(--panel);border:1px solid var(--line);margin-bottom:clamp(24px,3vw,36px);position:relative}
+.gu .toggle button{border:0;background:none;cursor:pointer;padding:11px 22px;border-radius:999px;font-weight:800;font-size:14.5px;color:var(--tx-2);transition:color .3s;position:relative;z-index:2;white-space:nowrap}
+.gu .toggle button.on{color:#0a1403}
+.gu .toggle .knob{position:absolute;z-index:1;top:5px;bottom:5px;border-radius:999px;background:var(--grad);box-shadow:var(--glow);transition:left .38s cubic-bezier(.2,.8,.3,1),width .38s cubic-bezier(.2,.8,.3,1)}
+.gu .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.8vw,22px)}
+.gu .plan{position:relative;display:flex;flex-direction:column;border-radius:var(--r-l);border:1px solid var(--line);background:linear-gradient(180deg,var(--panel),rgba(11,14,18,.7));padding:clamp(24px,2.6vw,34px);overflow:hidden;transition:transform .4s cubic-bezier(.2,.8,.3,1),border-color .4s,box-shadow .4s}
+.gu .plan::before{content:"";position:absolute;inset:0;opacity:0;transition:opacity .4s;background:radial-gradient(90% 70% at 50% 0%,rgba(108,192,36,.16),transparent 62%)}
+.gu .plan:hover{transform:translateY(-7px);border-color:rgba(143,225,59,.38);box-shadow:0 30px 60px -34px rgba(108,192,36,.6)}
+.gu .plan:hover::before{opacity:1}
+.gu .plan.hot{border-color:rgba(143,225,59,.45);background:linear-gradient(180deg,rgba(108,192,36,.10),rgba(11,14,18,.8))}
+.gu .plan-tag{position:absolute;top:0;right:0;padding:7px 16px;border-radius:0 0 0 14px;background:var(--grad);color:#0a1403;font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.gu .plan h3{font-size:clamp(19px,1.9vw,23px);position:relative}
+.gu .plan .plan-for{font-size:13.5px;color:var(--tx-3);font-weight:700;margin-top:6px;position:relative}
+.gu .plan-prices{display:flex;flex-direction:column;gap:1px;margin:22px 0;border-radius:var(--r-m);overflow:hidden;background:var(--line);border:1px solid var(--line);position:relative}
+.gu .plan-prices div{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:13px 16px;background:rgba(9,12,15,.75)}
+.gu .plan-prices small{font-size:13px;color:var(--tx-2);font-weight:700}
+.gu .plan-prices b{font-family:'Unbounded';font-size:clamp(17px,1.7vw,20px);font-weight:700;letter-spacing:-.03em;white-space:nowrap}
+.gu .plan-prices div:first-child b{color:var(--gas-3)}
+.gu .plan ul{list-style:none;margin:0 0 24px;padding:0;display:flex;flex-direction:column;gap:10px;position:relative}
+.gu .plan li{display:flex;gap:11px;font-size:14.5px;color:var(--tx-2);line-height:1.45}
+.gu .plan li svg{width:17px;height:17px;flex:none;margin-top:3px;stroke:var(--gas-2);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.gu .plan .btn{margin-top:auto;position:relative}
+.gu .special{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,1.8vw,22px);margin-top:clamp(14px,1.8vw,22px)}
+.gu .spec{position:relative;overflow:hidden;border-radius:var(--r-l);border:1px solid var(--line);background:linear-gradient(140deg,rgba(108,192,36,.12),rgba(17,21,26,.7) 52%);padding:clamp(24px,2.8vw,36px);transition:transform .4s,border-color .4s}
+.gu .spec:hover{transform:translateY(-6px);border-color:rgba(143,225,59,.36)}
+.gu .spec-price{font-family:'Unbounded';font-size:clamp(26px,3.2vw,38px);font-weight:800;letter-spacing:-.04em;margin:14px 0 10px}
+.gu .spec p{color:var(--tx-2);font-size:14.5px;max-width:52ch}
+.gu .spec .btn{margin-top:22px}
+.gu .opts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r-l);overflow:hidden}
+.gu .opt{background:var(--panel);padding:20px 22px;display:flex;flex-direction:column;gap:6px;transition:background .3s}
+.gu .opt span{flex:1}
+.gu .opt:hover{background:var(--panel-2)}
+.gu .opt span{font-size:14.5px;color:var(--tx-2);font-weight:600;line-height:1.35}
+.gu .opt b{font-family:'Unbounded';font-size:18px;font-weight:600;letter-spacing:-.025em;color:var(--gas-3)}
+.gu .svc-table{border:1px solid var(--line);border-radius:var(--r-l);overflow:hidden;background:var(--panel)}
+.gu .svc-row{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px clamp(18px,2.2vw,26px);border-bottom:1px solid var(--line);transition:background .25s,padding-left .3s}
+.gu .svc-row:last-child{border-bottom:0}
+.gu .svc-row:hover{background:rgba(108,192,36,.06);padding-left:calc(clamp(18px,2.2vw,26px) + 8px)}
+.gu .svc-row i{font-style:normal;font-size:15.5px;font-weight:600;color:var(--tx)}
+.gu .svc-row em{font-style:normal;display:block;font-size:13px;color:var(--tx-3);font-weight:600;margin-top:3px}
+.gu .svc-row b{font-family:'Unbounded';font-size:16.5px;font-weight:600;letter-spacing:-.025em;color:var(--gas-3);white-space:nowrap}
+.gu .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(12px,1.4vw,18px);counter-reset:s}
+.gu .step{position:relative;padding:clamp(22px,2.4vw,30px);border-radius:var(--r-l);background:linear-gradient(180deg,var(--panel),rgba(11,14,18,.6));border:1px solid var(--line);transition:transform .35s,border-color .35s}
+.gu .step:hover{transform:translateY(-6px);border-color:rgba(143,225,59,.36)}
+.gu .step-n{font-family:'Unbounded';font-size:12.5px;font-weight:800;letter-spacing:.1em;color:var(--gas-2);display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.gu .step-n i{flex:1;height:1px;background:linear-gradient(90deg,rgba(143,225,59,.5),transparent);font-style:normal}
+.gu .step h3{font-size:clamp(16px,1.4vw,18px);margin-bottom:10px}
+.gu .step p{color:var(--tx-2);font-size:14px}
+.gu .why-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:clamp(13px,1.5vw,20px)}
+.gu .why-card{grid-column:span 2;background:var(--panel);border:1px solid var(--line);border-radius:var(--r-l);padding:clamp(22px,2.5vw,32px);position:relative;overflow:hidden;transition:transform .35s,border-color .35s}
+.gu .why-card::before{content:"";position:absolute;inset:0;opacity:0;transition:opacity .35s;background:radial-gradient(90% 80% at 0% 0%,rgba(108,192,36,.16),transparent 62%)}
+.gu .why-card:hover{transform:translateY(-6px);border-color:rgba(143,225,59,.36)}
+.gu .why-card:hover::before{opacity:1}
+.gu .why-card h3{margin-bottom:10px;font-size:clamp(17px,1.5vw,20px);position:relative}
+.gu .why-card p{color:var(--tx-2);font-size:14.5px;position:relative}
+.gu .gibdd{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,4vw,64px);align-items:center}
+.gu .doc-list{list-style:none;margin:26px 0 0;padding:0;display:flex;flex-direction:column;gap:2px}
+.gu .doc-list li{display:flex;gap:14px;align-items:flex-start;padding:15px 4px;border-bottom:1px solid var(--line);font-size:15px;color:var(--tx-2)}
+.gu .doc-list li b{color:var(--tx);font-weight:700}
+.gu .doc-list svg{width:19px;height:19px;flex:none;margin-top:3px;stroke:var(--gas-2);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.gu .faq{max-width:900px;margin:0 auto}
+.gu .q{border:1px solid var(--line);border-radius:var(--r-m);background:var(--panel);margin-bottom:11px;overflow:hidden;transition:border-color .3s,background .3s}
+.gu .q[open]{border-color:rgba(143,225,59,.4);background:linear-gradient(180deg,rgba(108,192,36,.08),var(--panel))}
+.gu .q summary{list-style:none;cursor:pointer;padding:21px clamp(19px,2.3vw,28px);display:flex;align-items:center;gap:18px;font-weight:800;font-size:clamp(15.5px,1.5vw,18px)}
+.gu .q summary::-webkit-details-marker{display:none}
+.gu .q summary::after{content:"";flex:none;margin-left:auto;width:26px;height:26px;border-radius:50%;border:1px solid var(--line-2);
+  background:linear-gradient(var(--tx),var(--tx)) center/11px 1.6px no-repeat,linear-gradient(var(--tx),var(--tx)) center/1.6px 11px no-repeat;
+  transition:transform .35s,border-color .3s}
+.gu .q[open] summary::after{transform:rotate(135deg);border-color:var(--gas-2)}
+.gu .q .a{padding:0 clamp(19px,2.3vw,28px) 23px;color:var(--tx-2);font-size:15.5px;max-width:80ch}
+.gu .contacts{border-radius:var(--r-xl);border:1px solid var(--line);overflow:hidden;
+  background:radial-gradient(110% 120% at 100% 0%,rgba(108,192,36,.17),transparent 55%),linear-gradient(180deg,var(--panel),var(--bg-2))}
+.gu .contacts-grid{display:grid;grid-template-columns:1.05fr .95fr}
+.gu .contacts-l{padding:clamp(26px,3.8vw,54px);border-right:1px solid var(--line)}
+.gu .contacts-r{padding:clamp(26px,3.8vw,54px)}
+.gu .pts{list-style:none;margin:26px 0 0;padding:0;display:flex;flex-direction:column;gap:2px}
+.gu .pts li{display:flex;align-items:flex-start;gap:16px;padding:16px 4px;border-bottom:1px solid var(--line)}
+.gu .pts .pin{width:34px;height:34px;flex:none;border-radius:11px;background:rgba(108,192,36,.13);border:1px solid rgba(143,225,59,.25);display:grid;place-items:center}
+.gu .pts .pin svg{width:16px;height:16px;stroke:var(--gas-2);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.gu .pts b{font-family:'Unbounded';font-weight:600;font-size:15.5px;letter-spacing:-.015em;display:block}
+.gu .pts span{font-size:13.5px;color:var(--tx-2);font-weight:600}
+.gu .tel-big{display:inline-flex;flex-direction:column;gap:2px;margin-top:6px}
+.gu .tel-big span{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--tx-3);font-weight:800}
+.gu .tel-big a{font-family:'Unbounded';font-size:clamp(23px,2.9vw,33px);font-weight:700;letter-spacing:-.035em}
+.gu .tel-big a:hover{color:var(--gas-2)}
+.gu .socials{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
+.gu .soc{display:inline-flex;align-items:center;gap:9px;padding:11px 18px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid var(--line);font-size:14px;font-weight:700;transition:border-color .25s,background .25s,transform .25s}
+.gu .soc:hover{border-color:rgba(143,225,59,.45);background:rgba(108,192,36,.1);transform:translateY(-2px)}
+.gu .soc svg{width:17px;height:17px;stroke:var(--gas-2);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.gu .inp{width:100%;height:56px;border-radius:15px;background:rgba(255,255,255,.05);border:1px solid var(--line-2);padding:0 18px;font-size:16px;transition:border-color .25s,background .25s}
+.gu .inp::placeholder{color:var(--tx-3)}
+.gu .inp:focus{outline:none;border-color:var(--gas-2);background:rgba(255,255,255,.08)}
+.gu select.inp{appearance:none;-webkit-appearance:none;cursor:pointer;
+  background-image:linear-gradient(45deg,transparent 50%,var(--tx-2) 50%),linear-gradient(135deg,var(--tx-2) 50%,transparent 50%);
+  background-position:calc(100% - 22px) 25px,calc(100% - 16px) 25px;background-size:6px 6px,6px 6px;background-repeat:no-repeat}
+.gu select.inp option{background:#11151a;color:var(--tx)}
+.gu .form-row{display:flex;flex-direction:column;gap:12px;margin-top:22px}
+.gu .consent{font-size:12.5px;color:var(--tx-3);margin-top:14px;line-height:1.5}
+.gu .ok{display:none;padding:18px;border-radius:var(--r-m);background:rgba(108,192,36,.1);border:1px solid rgba(143,225,59,.35);color:var(--gas-3);font-weight:700;font-size:15px;margin-top:16px}
+.gu .ok.show{display:block}
+.gu .ftr{border-top:1px solid var(--line);padding:44px 0 120px;background:var(--bg-2)}
+.gu .ftr-in{display:flex;flex-wrap:wrap;gap:22px 34px;align-items:center;justify-content:space-between}
+.gu .ftr-nav{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:14px;color:var(--tx-2)}
+.gu .ftr-nav a:hover{color:var(--gas-2)}
+.gu .copy{font-size:13.5px;color:var(--tx-3);max-width:70ch;line-height:1.55}
+.gu .up{position:fixed;right:20px;bottom:96px;width:50px;height:50px;border-radius:50%;z-index:70;
+  background:rgba(17,21,26,.85);border:1px solid var(--line-2);backdrop-filter:blur(12px);
+  display:grid;place-items:center;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s}
+.gu .up.show{opacity:1;pointer-events:auto}
+.gu .up:hover{transform:translateY(-4px);border-color:var(--gas-2)}
+.gu .up svg{width:19px;height:19px;stroke:var(--tx);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.gu .bar{position:fixed;left:0;right:0;bottom:0;z-index:80;display:flex;gap:10px;
+  padding:10px var(--pad) calc(10px + env(safe-area-inset-bottom));
+  background:rgba(7,9,11,.92);backdrop-filter:blur(18px);border-top:1px solid var(--line);
+  transform:translateY(120%);transition:transform .4s cubic-bezier(.2,.8,.3,1)}
+.gu .bar.show{transform:none}
+.gu .bar .btn{flex:1;min-width:0}
+.gu .modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
+.gu .modal.open{display:flex}
+.gu .modal-bd{position:absolute;inset:0;background:rgba(3,5,6,.84);backdrop-filter:blur(8px)}
+.gu .modal-in{position:relative;width:min(520px,100%);max-height:92svh;overflow:auto;
+  background:linear-gradient(180deg,var(--panel-2),var(--bg-2));border:1px solid var(--line-2);
+  border-radius:var(--r-xl);padding:clamp(26px,4vw,40px);box-shadow:var(--shadow);animation:pop .4s cubic-bezier(.2,.9,.3,1)}
+@keyframes pop{from{opacity:0;transform:translateY(24px) scale(.97)}}
+.gu .modal-x{position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:12px;border:1px solid var(--line);background:none;cursor:pointer;font-size:19px}
+.gu .rv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.8,.3,1),transform .8s cubic-bezier(.2,.8,.3,1)}
+.gu .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+.gu .rv{opacity:1;transform:none;transition:none}
+.gu .mq-track, .gu .blob, .gu .hero-grid, .gu .hero h1 .w{animation:none}
+.gu .hero h1 .w{opacity:1;transform:none}
+.gu *{scroll-behavior:auto!important}
+}
+@media (max-width:1340px){
+.gu .hdr-in{gap:12px}
+.gu .logo img{height:31px}
+.gu .nav a{padding:8px 10px;font-size:13.5px}
+.gu .hdr-tel{font-size:14.5px}
+.gu .hdr-cta{gap:10px}
+}
+@media (max-width:1180px){
+.gu .nav a{padding:7px 7px;font-size:12.5px}
+.gu .logo img{height:29px}
+.gu .hdr-tel small{display:none}
+.gu .steps{grid-template-columns:repeat(3,1fr)}
+}
+@media (min-width:1141px){
+.gu .bar{display:none}}
+@media (max-width:1140px){
+.gu .nav, .gu .hdr-cta{display:none}
+.gu .burger{display:flex}
+.gu .why-grid{grid-template-columns:repeat(2,1fr)}
+.gu .why-card{grid-column:span 1}
+.gu .price-grid{grid-template-columns:1fr}
+.gu .opts{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:860px){
+.gu .stats{grid-template-columns:repeat(2,1fr)}
+.gu .calc, .gu .gibdd, .gu .contacts-grid, .gu .special{grid-template-columns:1fr}
+.gu .contacts-l{border-right:0;border-bottom:1px solid var(--line)}
+.gu .steps{grid-template-columns:repeat(2,1fr)}
+.gu .gibdd .gibdd-media{order:-1}
+}
+@media (max-width:640px){
+body{font-size:16px}
+.gu .why-grid, .gu .steps, .gu .opts{grid-template-columns:1fr}
+.gu .hero{min-height:auto;padding:110px 0 46px}
+.gu .hero-btns{flex-direction:column;align-items:stretch}
+.gu .hero-btns .btn{width:100%}
+.gu .hero-tel{padding:6px 0 0;align-items:center}
+.gu .calc-split{grid-template-columns:1fr}
+.gu .up{display:none}
+.gu .logo img{height:27px}
+.gu .logo-ftr img{height:48px}
+.gu .toggle{width:100%}
+.gu .toggle button{flex:1;padding:11px 8px;font-size:13.5px}
+.gu .svc-row{flex-direction:column;align-items:flex-start;gap:6px}
+.gu .svc-row:hover{padding-left:clamp(18px,2.2vw,26px)}
+}
+@media (max-width:390px){
+.gu .logo img{height:23px}
+.gu .burger, .gu .x{width:42px;height:42px}
+.gu .stat b{font-size:23px}
+}
+
+</style>
+</div>
+<div class="t-rec" data-record-type="123">
+<!-- Шапка и мобильное меню | блок сайта GASUP. Порядок блоков менять можно, но «Стили» должны идти первыми, «Скрипты» — последними. -->
+<div class="gu">
+<header class="hdr" id="hdr">
+  <div class="wrap hdr-in">
+    <a href="#top" class="logo" aria-label="GASUP — установка ГБО, на главную">
+      <img src="img/logo-word.png" alt="GASUP — установка ГБО" width="1002" height="249">
+    </a>
+    <nav class="nav">
+      <a href="#calc">Экономия</a>
+      <a href="#price">Цены</a>
+      <a href="#service">Обслуживание</a>
+      <a href="#gibdd">ГИБДД</a>
+      <a href="#steps">Как проходит</a>
+      <a href="#faq">Вопросы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="hdr-cta">
+      <a class="hdr-tel" href="tel:+73510000000">+7 (351) 000-00-00<small>Ответим за 5 минут</small></a>
+      <button class="btn btn-gas btn-sm" data-modal data-service="Расчёт стоимости ГБО">Рассчитать</button>
+    </div>
+    <button class="burger" id="burger" aria-label="Открыть меню"><span></span></button>
+  </div>
+</header>
+
+<div class="mob" id="mob">
+  <div class="wrap mob-top" style="padding:0">
+    <a href="#top" class="logo"><img src="img/logo-word.png" alt="GASUP" width="1002" height="249"></a>
+    <button class="x" id="mobX" aria-label="Закрыть меню">✕</button>
+  </div>
+  <nav>
+    <a href="#calc">Экономия на газе</a>
+    <a href="#price">Цены на установку</a>
+    <a href="#options">Доп. опции</a>
+    <a href="#service">ТО и ремонт ГБО</a>
+    <a href="#gibdd">Оформление в ГИБДД</a>
+    <a href="#steps">Как проходит установка</a>
+    <a href="#why">Почему GASUP</a>
+    <a href="#faq">Вопросы и ответы</a>
+    <a href="#contacts">Контакты</a>
+  </nav>
+  <button class="btn btn-gas btn-wide" data-modal data-service="Расчёт стоимости ГБО">Рассчитать стоимость</button>
+</div>
+</div>
+</div>
+<div class="t-rec" data-record-type="123">
+<!-- Первый экран | блок сайта GASUP. Порядок блоков менять можно, но «Стили» должны идти первыми, «Скрипты» — последними. -->
+<div class="gu">
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="blob b1" aria-hidden="true"></div>
+  <div class="blob b2" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="hero-in">
+      <span class="pill"><i class="dot"></i>Челябинск и область · запись на завтра</span>
+      <h1>
+        <span class="w" style="animation-delay:.05s">Установка</span>
+        <span class="w" style="animation-delay:.12s">ГБО</span>
+        <span class="w" style="animation-delay:.19s">в</span>
+        <span class="w" style="animation-delay:.26s">Челябинске</span>
+        <span class="w gr" style="animation-delay:.36s">от&nbsp;29&nbsp;900&nbsp;₽</span>
+      </h1>
+      <p class="hero-sub">Пропан и метан на легковые, коммерческие авто и внедорожники. Подбираем комплект под ваш двигатель, ставим за один день и помогаем оформить ГБО в ГИБДД.</p>
+      <p class="hero-note">Цена зависит от числа цилиндров, типа впрыска и оборудования. Точную сумму называем после короткого разговора о вашем авто — бесплатно.</p>
+      <div class="hero-btns">
+        <button class="btn btn-gas" data-modal data-service="Расчёт стоимости ГБО">Рассчитать стоимость</button>
+        <a class="btn btn-ghost" href="#calc">Сколько сэкономлю</a>
+        <span class="hero-tel">
+          <span>Звонок и расчёт — бесплатно</span>
+          <a href="tel:+73510000000">+7 (351) 000-00-00</a>
+        </span>
+      </div>
+      <div class="stats">
+        <div class="stat"><b><span data-count="29900" data-suffix=" ₽"></span></b><span>от — установка на 4 цилиндра под ключ</span></div>
+        <div class="stat"><b class="gr"><span data-count="50" data-suffix="%"></span></b><span>примерно столько экономит газ на топливе</span></div>
+        <div class="stat"><b><span data-count="1" data-suffix=" день"></span></b><span>стандартный срок установки комплекта</span></div>
+        <div class="stat"><b><span data-count="2" data-suffix=" года"></span></b><span>гарантия на работы по договору</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+</div>
+<div class="t-rec" data-record-type="123">
+<!-- Бегущая строка | блок сайта GASUP. Порядок блоков менять можно, но «Стили» должны идти первыми, «Скрипты» — последними. -->
+<div class="gu">
+<div class="mq" aria-hidden="true">
+  <div class="mq-track">
+    <span>ГБО 4 поколения</span><span>Пропан и метан</span><span>Непосредственный впрыск</span><span>4, 6 и 8 цилиндров</span><span>Регистрация в ГИБДД</span><span>ТО и диагностика</span><span>Гарантия по договору</span><span>Установка за 1 день</span>
+    <span>ГБО 4 поколения</span><span>Пропан и метан</span><span>Непосредственный впрыск</span><span>4, 6 и 8 цилиндров</span><span>Регистрация в ГИБДД</span><span>ТО и диагностика</span><span>Гарантия по договору</span><span>Установка за 1 день</span>
+  </div>
+</div>
+</div>
+</div>
+<div class="t-rec" data-record-type="123">
+<!-- Калькулятор экономии на газе | блок сайта GASUP. Порядок блоков менять можно, но «Стили» должны идти первыми, «Скрипты» — последними. -->
+<div class="gu">
+<section class="sec" id="calc">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Калькулятор экономии</span>
+      <h2>Сколько вы отдаёте <span class="gr">лишнего</span> за бензин</h2>
+      <p class="lead">Газ стоит примерно вдвое дешевле бензина. Подвиньте ползунки под свой режим езды — посчитаем экономию и срок окупаемости комплекта.</p>
+    </div>
+    <div class="calc">
+      <div class="card rv">
+        <div class="field">
+          <label>Расход бензина, л на 100 км <b><span id="v1">10</span> л</b></label>
+          <input type="range" id="r1" min="5" max="25" step="0.5" value="10">
+        </div>
+        <div class="field">
+          <label>Пробег в месяц, км <b><span id="v2">2 000</span> км</b></label>
+          <input type="range" id="r2" min="300" max="8000" step="100" value="2000">
+        </div>
+        <div class="field">
+          <label>Цена бензина, ₽ за литр <b><span id="v3">60</span> ₽</b></label>
+          <input type="range" id="r3" min="40" max="90" step="1" value="60">
+        </div>
+        <div class="field">
+          <label>Цена пропана, ₽ за литр <b><span id="v4">29</span> ₽</b></label>
+          <input type="range" id="r4" min="18" max="45" step="1" value="29">
+        </div>
+        <div class="field">
+          <label>Стоимость комплекта с установкой, ₽ <b><span id="v5">34 900</span> ₽</b></label>
+          <input type="range" id="r5" min="29900" max="120000" step="1000" value="34900">
+        </div>
+      </div>
+      <div class="card calc-out rv">
+        <span class="cap">Экономия за год</span>
+        <div class="big gr" id="oYear">0 ₽</div>
+        <div class="calc-split">
+          <div><b id="oMonth">0 ₽</b><span>в месяц</span></div>
+          <div><b id="oFuel">0 ₽</b><span>сейчас тратите в месяц</span></div>
+        </div>
+        <div class="payback">
+          <b id="oPay">0 мес.</b>
+          <span>окупаемость установки при таком пробеге</span>
+        </div>
+        <p class="hint" style="margin-top:16px">Расчёт ориентировочный. Учтено, что на газе расход выше примерно на 10% — это заложено в формулу. Реальные цифры зависят от стиля езды, состояния двигателя и цен на АЗС.</p>
+        <button class="btn btn-gas btn-wide" style="margin-top:18px" data-modal data-service="Расчёт экономии">Хочу такую экономию</button>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+</div>
+<div class="t-rec" data-record-type="123">
+<!-- Прайс на установку ГБО | блок сайта GASUP. Порядок блоков менять можно, но «Стили» должны идти первыми, «Скрипты» — последними. -->
+<div class="gu">
+<section class="sec" id="price" style="background:var(--bg-2);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Цены на установку ГБО</span>
+      <h2>Прайс на <span class="gr">газобаллонное оборудование</span></h2>
+      <p class="lead">Три комплектации под разный бюджет и мощность двигателя. Выберите количество цилиндров — цены пересчитаются.</p>
+    </div>
+
+    <div class="toggle rv" id="cylToggle" role="tablist" aria-label="Количество цилиндров">
+      <span class="knob" id="knob"></span>
+      <button class="on" data-cyl="4" role="tab" aria-selected="true">4 цилиндра</button>
+      <button data-cyl="6" role="tab" aria-selected="false">6 цилиндров</button>
+      <button data-cyl="8" role="tab" aria-selected="false">8 цилиндров</button>
+    </div>
+
+    <div class="price-grid">
+      <article class="plan rv">
+        <h3>GASUP START</h3>
+        <p class="plan-for">Массовые легковые авто с распределённым впрыском</p>
+        <div class="plan-prices">
+          <div><small class="cyl-cap">Под ключ, 4 цилиндра</small><b data-p4="от 29 900 ₽" data-p6="от 44 900 ₽" data-p8="от 54 900 ₽">от 29 900 ₽</b></div>
+        </div>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Надёжный базовый комплект ГБО 4 поколения</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Баллон согласованного объёма в нишу запаски</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Стандартный монтаж и настройка на стенде</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Первое ТО через 1 000 км — бесплатно</li>
+        </ul>
+        <button class="btn btn-ghost btn-wide" data-modal data-service="GASUP START">Уточнить цену на моё авто</button>
+      </article>
+
+      <article class="plan hot rv">
+        <span class="plan-tag">Выбирают чаще</span>
+        <h3>GASUP OPTIMA</h3>
+        <p class="plan-for">Оптимум по цене и ресурсу — для ежедневной езды</p>
+        <div class="plan-prices">
+          <div><small class="cyl-cap">Под ключ, 4 цилиндра</small><b data-p4="от 34 900 ₽" data-p6="от 54 900 ₽" data-p8="от 69 900 ₽">от 34 900 ₽</b></div>
+        </div>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Быстрые форсунки и производительный редуктор</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>ВЗУ в лючок бензобака — заправка как обычно</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Улучшенные магистрали и монтажные материалы</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Расширенная настройка под ваш двигатель</li>
+        </ul>
+        <button class="btn btn-gas btn-wide" data-modal data-service="GASUP OPTIMA">Уточнить цену на моё авто</button>
+      </article>
+
+      <article class="plan rv">
+        <h3>GASUP PRO</h3>
+        <p class="plan-for">Мощные и премиальные двигатели, большие пробеги</p>
+        <div class="plan-prices">
+          <div><small class="cyl-cap">Под ключ, 4 цилиндра</small><b data-p4="от 42 900 ₽" data-p6="от 64 900 ₽" data-p8="от 89 900 ₽">от 42 900 ₽</b></div>
+        </div>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Премиальные компоненты с запасом по мощности</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Точная калибровка на всех режимах</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Вариатор УОЗ и датчик уровня газа в комплекте</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Приоритетная запись на обслуживание</li>
+        </ul>
+        <button class="btn btn-ghost btn-wide" data-modal data-service="GASUP PRO">Уточнить цену на моё авто</button>
+      </article>
+    </div>
+
+    <div class="special">
+      <article class="spec rv">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2v6m0 0 3-3m-3 3L9 5"/><path d="M5 12h14v9H5z"/><path d="M9 16h6"/></svg></div>
+        <h3>Непосредственный впрыск: GDI, FSI, TSI, TFSI</h3>
+        <div class="spec-price gr">от 79 900 ₽</div>
+        <p>Для таких двигателей нужен другой комплект и отдельный расчёт: считаем по марке, модели, году и коду двигателя. Цена может быть выше — скажем честно до начала работ.</p>
+        <button class="btn btn-ghost" data-modal data-service="ГБО на непосредственный впрыск">Рассчитать по коду двигателя</button>
+      </article>
+      <article class="spec rv">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3c3 3.5 4.5 6 4.5 8.5A4.5 4.5 0 0 1 12 16a4.5 4.5 0 0 1-4.5-4.5C7.5 9 9 6.5 12 3z"/><path d="M8 20h8"/></svg></div>
+        <h3>Метан (КПГ) — максимальная экономия на литре</h3>
+        <div class="spec-price gr">от 110 000 ₽</div>
+        <p>Дороже пропана на входе, но топливо заметно дешевле — выгодно при больших пробегах и для коммерческого транспорта. Считаем окупаемость по вашему километражу.</p>
+        <button class="btn btn-ghost" data-modal data-service="ГБО на метане">Посчитать окупаемость метана</button>
+      </article>
+    </div>
+
+    <p class="hint rv" style="margin-top:22px;max-width:80ch">Все цены указаны как «от» и зависят от двигателя, типа впрыска, мощности, бренда оборудования, типа и объёма баллона, места установки ВЗУ и объёма дополнительных работ. Итоговую стоимость фиксируем в договоре после осмотра автомобиля.</p>
+  </div>
+</section>
+</div>
+</div>
+<div class="t-rec" data-record-type="123">
+<!-- Дополнительные опции | блок сайта GASUP. Порядок блоков менять можно, но «Стили» должны идти первыми, «Скрипты» — последними. -->
+<div class="gu">
+<section class="sec" id="options">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Дополнительные опции</span>
+      <h2>Допы, которые чаще всего <span class="gr">берут вместе с ГБО</span></h2>
+      <p class="lead">Ставятся при установке или отдельно. Цены — за работу; стоимость самих деталей зависит от бренда и наличия.</p>
+    </div>
+    <div class="opts rv">
+      <div class="opt"><span>ВЗУ в лючок бензобака</span><b>от 1 000 ₽</b></div>
+      <div class="opt"><span>Мультиклапан EURO</span><b>от 1 500 ₽</b></div>
+      <div class="opt"><span>Крепление баллона под днищем</span><b>от 2 000 ₽</b></div>
+      <div class="opt"><span>Термопластиковая магистраль</span><b>от 500 ₽</b></div>
+      <div class="opt"><span>Датчик уровня газа</span><b>от 500 ₽</b></div>
+      <div class="opt"><span>Вариатор УОЗ</span><b>от 3 650 ₽</b></div>
+      <div class="opt"><span>Тороидальный баллон в нишу — работа</span><b>от 2 500 ₽</b></div>
+      <div class="opt"><span>Подвесной тороидальный баллон — работа</span><b>от 4 500 ₽</b></div>
+      <div class="opt"><span>Цилиндрический баллон — работа</span><b>от 3 500 ₽</b></div>
+      <div class="opt"><span>Демонтаж ГБО</span><b>от 4 000 ₽</b></div>
+      <div class="opt"><span>Демонтаж впускного коллектора</span><b>от 5 000 ₽</b></div>
+      <div class="opt"><span>Помощь с оформлением в ГИБДД</span><b>от 7 000 ₽</b></div>
+    </div>
+  </div>
+</section>
+</div>
+</div>
+<div class="t-rec" data-record-type="123">
+<!-- ТО, диагностика и ремонт | блок сайта GASUP. Порядок блоков менять можно, но «Стили» должны идти первыми, «Скрипты» — последними. -->
+<div class="gu">
+<section class="sec" id="service" style="background:var(--bg-2);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Обслуживание и ремонт ГБО</span>
+      <h2>ТО, диагностика и <span class="gr">ремонт газового оборудования</span></h2>
+      <p class="lead">Обслуживаем ГБО, установленное у нас и в других сервисах. Регламентное ТО — каждые 10–12 тысяч километров: с ним газ работает ровно, а расход не растёт.</p>
+    </div>
+    <div class="svc-table rv">
+      <div class="svc-row"><span><i>Периодическое ТО ГБО</i><em>Фильтры, проверка герметичности, коррекция настроек</em></span><b>от 1 500 ₽</b></div>
+      <div class="svc-row"><span><i>Диагностика ГБО</i><em>Считываем ошибки, проверяем давление и форсунки</em></span><b>от 800 ₽</b></div>
+      <div class="svc-row"><span><i>Настройка ГБО</i><em>Калибровка после ремонта или установки в другом сервисе</em></span><b>от 800 ₽</b></div>
+      <div class="svc-row"><span><i>Замена фильтра паровой фазы</i><em>Работа, без стоимости фильтра</em></span><b>от 300 ₽</b></div>
+      <div class="svc-row"><span><i>Замена фильтра грубой очистки</i><em>Работа, без стоимости фильтра</em></span><b>от 700 ₽</b></div>
+      <div class="svc-row"><span><i>Переборка редуктора</i><em>Работа, ремкомплект оплачивается отдельно</em></span><b>от 3 000 ₽</b></div>
+      <div class="svc-row"><span><i>Замена редуктора</i><em>Работа по снятию и установке</em></span><b>от 1 500 ₽</b></div>
+      <div class="svc-row"><span><i>Замена форсунки или рампы</i><em>Цена за одну позицию</em></span><b>от 500 ₽</b></div>
+      <div class="svc-row"><span><i>Устранение утечки газа</i><em>Поиск и локализация с опрессовкой</em></span><b>от 700 ₽</b></div>
+      <div class="svc-row"><span><i>Ремонт электропроводки ГБО</i><em>Сложные электромонтажные работы — по времени</em></span><b>от 2 500 ₽</b></div>
+    </div>
+    <p class="hint rv" style="margin-top:20px">Запчасти и расходники считаются отдельно. Перед работой согласуем сумму — без «сюрпризов» в чеке.</p>
+  </div>
+</section>
+</div>
+</div>
+<div class="t-rec" data-record-type="123">
+<!-- Оформление в ГИБДД | блок сайта GASUP. Порядок блоков менять можно, но «Стили» должны идти первыми, «Скрипты» — последними. -->
+<div class="gu">
+<section class="sec" id="gibdd">
+  <div class="wrap gibdd">
+    <div class="rv">
+      <span class="eyebrow">Документы</span>
+      <h2>Оформление ГБО <span class="gr">в ГИБДД</span></h2>
+      <p class="lead">Газовое оборудование — это изменение в конструкцию автомобиля, и его нужно узаконить. Берём бумажную часть на себя и ведём вас по всем этапам.</p>
+      <ul class="doc-list">
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b>Предварительная экспертиза</b> — заключение о возможности внесения изменений</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b>Установка и документы от сервиса</b> — заявление-декларация, копии сертификатов и паспорт баллона</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b>Техосмотр и протокол проверки</b> безопасности конструкции</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b>Внесение изменений в СТС</b> — финальный визит в ГИБДД</span></li>
+      </ul>
+      <p class="hint" style="margin-top:20px">Наша работа — от 7 000 ₽. Госпошлины, услуги лаборатории и техосмотра оплачиваются отдельно по их тарифам: мы называем полную сумму заранее и не прячем её в «под ключ». Для ГБО, установленного не у нас, — от 8 000 ₽ и после осмотра.</p>
+      <button class="btn btn-gas" style="margin-top:24px" data-modal data-service="Оформление ГБО в ГИБДД">Помочь с оформлением</button>
+    </div>
+    <div class="rv gibdd-media">
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M6 3h9l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v6h6"/><path d="M9 14h6M9 18h4"/></svg></div>
+        <h3 style="margin-bottom:14px">Что будет, если не оформить</h3>
+        <p style="color:var(--tx-2);font-size:15px;margin-bottom:20px">Незарегистрированное ГБО — основание для штрафа и отказа в техосмотре, а при ДТП страховая может задавать неудобные вопросы. Оформление один раз закрывает эту тему навсегда.</p>
+        <div class="opts" style="grid-template-columns:1fr 1fr">
+          <div class="opt"><span>Наша работа по оформлению</span><b>от 7 000 ₽</b></div>
+          <div class="opt"><span>ГБО установлено не у нас</span><b>от 8 000 ₽</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+</div>
+<div class="t-rec" data-record-type="123">
+<!-- Как проходит установка | блок сайта GASUP. Порядок блоков менять можно, но «Стили» должны идти первыми, «Скрипты» — последними. -->
+<div class="gu">
+<section class="sec" id="steps" style="background:var(--bg-2);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Как проходит установка</span>
+      <h2>От звонка до <span class="gr">первой заправки газом</span></h2>
+    </div>
+    <div class="steps">
+      <div class="step rv"><div class="step-n">01<i></i></div><h3>Заявка и подбор</h3><p>Спрашиваем марку, двигатель и пробег. Называем комплект и цену.</p></div>
+      <div class="step rv"><div class="step-n">02<i></i></div><h3>Осмотр и договор</h3><p>Смотрим подкапотное пространство и место под баллон. Фиксируем сумму.</p></div>
+      <div class="step rv"><div class="step-n">03<i></i></div><h3>Установка за день</h3><p>Обычно 6–8 часов. Аккуратный монтаж без «колхоза» в проводке.</p></div>
+      <div class="step rv"><div class="step-n">04<i></i></div><h3>Настройка и обкатка</h3><p>Калибруем на всех режимах. Первое ТО через 1 000 км — бесплатно.</p></div>
+      <div class="step rv"><div class="step-n">05<i></i></div><h3>Документы</h3><p>Выдаём пакет для ГИБДД и ведём до отметки в СТС.</p></div>
+    </div>
+  </div>
+</section>
+</div>
+</div>
+<div class="t-rec" data-record-type="123">
+<!-- Почему GASUP | блок сайта GASUP. Порядок блоков менять можно, но «Стили» должны идти первыми, «Скрипты» — последними. -->
+<div class="gu">
+<section class="sec" id="why">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Почему GASUP</span>
+      <h2>Ставим газ так, чтобы <span class="gr">о нём можно было забыть</span></h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div><h3>Считаем выгоду, а не «продаём газ»</h3><p>Если по вашему пробегу установка не окупится — скажем прямо. Такой клиент вернётся позже, недовольный — нет.</p></div>
+      <div class="why-card rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v6c0 4.5-3.2 7.6-8 8.9C7.2 20.6 4 17.5 4 13V7z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Сертифицированное оборудование</h3><p>Только комплекты с документами и паспортом баллона — иначе оформление в ГИБДД просто не пройдёт.</p></div>
+      <div class="why-card rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M5 4h14v16l-7-3-7 3z"/></svg></div><h3>Договор и гарантия</h3><p>Стоимость и сроки — в договоре. Гарантия на работы 2 года, на оборудование — по гарантии производителя.</p></div>
+      <div class="why-card rv"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>Установка за один день</h3><p>Приехали утром — вечером уехали на газе. Без «оставьте машину на неделю».</p></div>
+      <div class="why-card rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a5 5 0 0 0-6.9 6.9L3 18v3h3l4.8-4.8a5 5 0 0 0 6.9-6.9l-2.6 2.6-2.1-2.1z"/></svg></div><h3>Своё обслуживание</h3><p>ТО, диагностика и ремонт ГБО — у нас же. Не нужно искать, кто возьмётся за чужую установку.</p></div>
+      <div class="why-card rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h10M4 17h7"/></svg></div><h3>Прозрачный прайс</h3><p>Цены на работы и допы опубликованы. Итог согласуем до начала — в чеке не появляется ничего нового.</p></div>
+    </div>
+  </div>
+</section>
+</div>
+</div>
+<div class="t-rec" data-record-type="123">
+<!-- Вопросы и ответы | блок сайта GASUP. Порядок блоков менять можно, но «Стили» должны идти первыми, «Скрипты» — последними. -->
+<div class="gu">
+<section class="sec" id="faq" style="background:var(--bg-2);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head rv" style="text-align:center;margin-inline:auto">
+      <span class="eyebrow" style="justify-content:center">Вопросы и ответы</span>
+      <h2>Что чаще всего спрашивают <span class="gr">про ГБО</span></h2>
+    </div>
+    <div class="faq">
+      <details class="q rv"><summary>Сколько стоит установка ГБО в Челябинске?</summary><div class="a">Установка ГБО на 4-цилиндровый двигатель с распределённым впрыском — от 29 900 ₽ под ключ, на 6 цилиндров — от 44 900 ₽, на 8 — от 54 900 ₽. Итоговая цена зависит от комплектации, бренда оборудования, типа и объёма баллона. Для непосредственного впрыска (GDI, FSI, TSI) расчёт индивидуальный — от 79 900 ₽.</div></details>
+      <details class="q rv"><summary>За сколько окупается ГБО?</summary><div class="a">При пробеге около 2 000 км в месяц и расходе 10 л на 100 км комплект обычно окупается за 6–10 месяцев. Чем больше ездите, тем быстрее: у такси и коммерческого транспорта окупаемость часто укладывается в 3–4 месяца. Посчитайте свой вариант в калькуляторе выше.</div></details>
+      <details class="q rv"><summary>Вредно ли ГБО для двигателя?</summary><div class="a">Правильно подобранное и настроенное оборудование не вредит мотору. Газ горит чище бензина: меньше нагара, масло дольше остаётся чистым. Проблемы появляются при экономии на комплекте, кустарном монтаже и пропущенных ТО — поэтому мы делаем калибровку на стенде и зовём на первое ТО через 1 000 км.</div></details>
+      <details class="q rv"><summary>Нужно ли регистрировать ГБО в ГИБДД?</summary><div class="a">Да, установка ГБО — внесение изменений в конструкцию, и его нужно узаконить: предварительная экспертиза, документы от сервиса, техосмотр с протоколом проверки безопасности и отметка в СТС. Мы помогаем пройти процедуру — наша работа от 7 000 ₽, госпошлины и услуги лаборатории оплачиваются отдельно.</div></details>
+      <details class="q rv"><summary>Сколько времени занимает установка?</summary><div class="a">Стандартный комплект на распределённый впрыск ставим за один день — обычно 6–8 часов вместе с настройкой. Сложные случаи (непосредственный впрыск, нестандартное размещение баллона, снятие коллектора) занимают больше — сроки называем на осмотре.</div></details>
+      <details class="q rv"><summary>Пропан или метан — что выбрать?</summary><div class="a">Пропан дешевле на входе, оборудование компактнее, заправок больше — это выбор для большинства легковых авто. Метан дороже в установке (от 110 000 ₽), но само топливо заметно дешевле, поэтому он выгоден при больших пробегах и в коммерческом транспорте. Посчитаем оба варианта по вашему километражу.</div></details>
+      <details class="q rv"><summary>Можно ли поставить ГБО на непосредственный впрыск?</summary><div class="a">Да, для GDI, FSI, TSI и подобных систем существуют отдельные комплекты, которые сохраняют работу бензиновых форсунок. Цена выше — от 79 900 ₽, и считается по коду двигателя. Универсального прайса здесь не бывает: сначала проверяем конкретную систему.</div></details>
+      <details class="q rv"><summary>Падает ли мощность на газе?</summary><div class="a">На правильно настроенном оборудовании разница почти незаметна в обычной езде. Расход в литрах выше примерно на 10% — это учтено в калькуляторе. Если после установки в другом сервисе машина «тупит», приезжайте на диагностику: чаще всего дело в настройке или изношенных фильтрах.</div></details>
+      <details class="q rv"><summary>Как часто нужно обслуживать ГБО?</summary><div class="a">Регламентное ТО — каждые 10–12 тысяч километров: меняем фильтры, проверяем герметичность и корректируем настройки. Стоимость от 1 500 ₽. Обслуживаем и то оборудование, которое ставили не мы, — сначала диагностика от 800 ₽.</div></details>
+    </div>
+  </div>
+</section>
+</div>
+</div>
+<div class="t-rec" data-record-type="123">
+<!-- Контакты и заявка | блок сайта GASUP. Порядок блоков менять можно, но «Стили» должны идти первыми, «Скрипты» — последними. -->
+<div class="gu">
+<section class="sec" id="contacts">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Контакты и запись</span>
+      <h2>Запишитесь на <span class="gr">бесплатный расчёт</span></h2>
+      <p class="lead">Назовите марку, двигатель и примерный пробег в месяц — посчитаем стоимость комплекта и срок окупаемости. Без навязывания: если газ вам не выгоден, честно скажем об этом.</p>
+    </div>
+    <div class="contacts rv">
+      <div class="contacts-grid">
+        <div class="contacts-l">
+          <span class="tel-big">
+            <span>Телефон</span>
+            <a href="tel:+73510000000">+7 (351) 000-00-00</a>
+          </span>
+          <div class="socials">
+            <a class="soc" href="https://wa.me/73510000000" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 1-13.3 7.9L3 21l1.2-4.6A9 9 0 1 1 21 12z"/><path d="M8.5 9.5c0 3 2 5 5 5"/></svg>WhatsApp</a>
+            <a class="soc" href="https://t.me/gasup" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="m21 4-3 16-6-5-3 4-1-6L3 10z"/><path d="m9 13 9-8"/></svg>Telegram</a>
+          </div>
+          <ul class="pts">
+            <li>
+              <span class="pin"><svg viewBox="0 0 24 24"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+              <span><b>Челябинск</b><span>Адрес сервиса — уточним при записи</span></span>
+            </li>
+            <li>
+              <span class="pin"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+              <span><b>Ежедневно 9:00 — 20:00</b><span>Запись на конкретное время, без очередей</span></span>
+            </li>
+            <li>
+              <span class="pin"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="m4 6 8 6 8-6"/></svg></span>
+              <span><b>info@gasup.ru</b><span>Для документов и юридических лиц</span></span>
+            </li>
+          </ul>
+        </div>
+        <div class="contacts-r">
+          <h3 style="margin-bottom:8px">Оставьте заявку</h3>
+          <p style="color:var(--tx-2);font-size:15px">Перезвоним в течение рабочего дня и рассчитаем стоимость.</p>
+          <form class="form-row" data-form>
+            <input class="inp" type="text" name="name" placeholder="Как вас зовут" autocomplete="name">
+            <input class="inp" type="tel" name="phone" placeholder="+7 (___) ___-__-__" required autocomplete="tel">
+            <input class="inp" type="text" name="car" placeholder="Марка, модель, двигатель" autocomplete="off">
+            <select class="inp" name="service">
+              <option>Установка ГБО — пропан</option>
+              <option>Установка ГБО — метан</option>
+              <option>Непосредственный впрыск (GDI, FSI, TSI)</option>
+              <option>ТО или диагностика ГБО</option>
+              <option>Ремонт ГБО</option>
+              <option>Оформление в ГИБДД</option>
+            </select>
+            <button class="btn btn-gas btn-wide" type="submit">Отправить заявку</button>
+            <p class="consent">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+          </form>
+          <div class="ok" data-ok>Заявка принята. Перезвоним с расчётом — обычно в течение часа в рабочее время.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+</div>
+<div class="t-rec" data-record-type="123">
+<!-- Подвал, кнопка вверх, липкая панель | блок сайта GASUP. Порядок блоков менять можно, но «Стили» должны идти первыми, «Скрипты» — последними. -->
+<div class="gu">
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-in">
+      <a href="#top" class="logo logo-ftr"><img src="img/logo-full.png" alt="GASUP — установка ГБО" width="1002" height="662"></a>
+      <nav class="ftr-nav">
+        <a href="#calc">Экономия</a>
+        <a href="#price">Цены</a>
+        <a href="#options">Опции</a>
+        <a href="#service">Обслуживание</a>
+        <a href="#gibdd">ГИБДД</a>
+        <a href="#faq">Вопросы</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <a class="hdr-tel" href="tel:+73510000000">+7 (351) 000-00-00<small>Ежедневно 9:00 — 20:00</small></a>
+    </div>
+    <p class="copy" style="margin-top:26px">© <span id="yr">2026</span> GASUP — установка и обслуживание ГБО в Челябинске. Информация на сайте носит справочный характер и не является публичной офертой. Все цены указаны как «от»: итоговая стоимость зависит от автомобиля и комплектации и фиксируется в договоре после осмотра.</p>
+  </div>
+</footer>
+
+<button class="up" id="up" aria-label="Наверх"><svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+
+<div class="bar" id="bar">
+  <a class="btn btn-ghost btn-sm" href="tel:+73510000000">Позвонить</a>
+  <button class="btn btn-gas btn-sm" data-modal data-service="Расчёт стоимости ГБО">Рассчитать ГБО</button>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"AutoRepair",
+      "@id":"https://gasup.ru/#business",
+      "name":"GASUP — установка ГБО",
+      "description":"Установка и обслуживание газобаллонного оборудования в Челябинске: пропан и метан, ГБО 4 поколения, непосредственный впрыск, ТО и диагностика, помощь с регистрацией в ГИБДД.",
+      "image":"https://gasup.ru/img/logo-full.png",
+      "logo":"https://gasup.ru/img/logo-full.png",
+      "url":"https://gasup.ru/",
+      "telephone":"+7 (351) 000-00-00",
+      "email":"info@gasup.ru",
+      "priceRange":"от 29900 ₽",
+      "currenciesAccepted":"RUB",
+      "address":{"@type":"PostalAddress","addressLocality":"Челябинск","addressRegion":"Челябинская область","addressCountry":"RU"},
+      "areaServed":[{"@type":"City","name":"Челябинск"},{"@type":"AdministrativeArea","name":"Челябинская область"}],
+      "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"09:00","closes":"20:00"}],
+      "hasOfferCatalog":{
+        "@type":"OfferCatalog","name":"Услуги по ГБО",
+        "itemListElement":[
+          {"@type":"Offer","name":"Установка ГБО, 4 цилиндра","priceCurrency":"RUB","price":"29900","priceSpecification":{"@type":"PriceSpecification","minPrice":"29900","priceCurrency":"RUB"}},
+          {"@type":"Offer","name":"Установка ГБО, 6 цилиндров","priceCurrency":"RUB","price":"44900"},
+          {"@type":"Offer","name":"Установка ГБО, 8 цилиндров","priceCurrency":"RUB","price":"54900"},
+          {"@type":"Offer","name":"ГБО на непосредственный впрыск","priceCurrency":"RUB","price":"79900"},
+          {"@type":"Offer","name":"Установка ГБО на метане","priceCurrency":"RUB","price":"110000"},
+          {"@type":"Offer","name":"ТО ГБО","priceCurrency":"RUB","price":"1500"},
+          {"@type":"Offer","name":"Диагностика ГБО","priceCurrency":"RUB","price":"800"},
+          {"@type":"Offer","name":"Помощь с оформлением ГБО в ГИБДД","priceCurrency":"RUB","price":"7000"}
+        ]
+      }
+    },
+    {
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"Сколько стоит установка ГБО в Челябинске?","acceptedAnswer":{"@type":"Answer","text":"Установка ГБО на 4-цилиндровый двигатель с распределённым впрыском — от 29 900 ₽ под ключ, на 6 цилиндров — от 44 900 ₽, на 8 — от 54 900 ₽. Для непосредственного впрыска расчёт индивидуальный — от 79 900 ₽."}},
+        {"@type":"Question","name":"За сколько окупается ГБО?","acceptedAnswer":{"@type":"Answer","text":"При пробеге около 2 000 км в месяц и расходе 10 л на 100 км комплект обычно окупается за 6–10 месяцев. При больших пробегах окупаемость сокращается до 3–4 месяцев."}},
+        {"@type":"Question","name":"Вредно ли ГБО для двигателя?","acceptedAnswer":{"@type":"Answer","text":"Правильно подобранное и настроенное оборудование не вредит мотору: газ горит чище бензина, меньше нагара. Проблемы возникают при экономии на комплекте, кустарном монтаже и пропущенных ТО."}},
+        {"@type":"Question","name":"Нужно ли регистрировать ГБО в ГИБДД?","acceptedAnswer":{"@type":"Answer","text":"Да, установка ГБО — внесение изменений в конструкцию: нужна предварительная экспертиза, документы от сервиса, техосмотр с протоколом проверки безопасности и отметка в СТС. Помощь с оформлением — от 7 000 ₽ без учёта госпошлин."}},
+        {"@type":"Question","name":"Сколько времени занимает установка ГБО?","acceptedAnswer":{"@type":"Answer","text":"Стандартный комплект на распределённый впрыск устанавливается за один день, обычно 6–8 часов вместе с настройкой."}},
+        {"@type":"Question","name":"Пропан или метан — что выбрать?","acceptedAnswer":{"@type":"Answer","text":"Пропан дешевле в установке и подходит большинству легковых авто. Метан дороже на старте — от 110 000 ₽, но топливо заметно дешевле, поэтому он выгоден при больших пробегах и в коммерческом транспорте."}},
+        {"@type":"Question","name":"Можно ли поставить ГБО на непосредственный впрыск?","acceptedAnswer":{"@type":"Answer","text":"Да, для GDI, FSI, TSI и подобных систем существуют отдельные комплекты, сохраняющие работу бензиновых форсунок. Цена от 79 900 ₽ и считается по коду двигателя."}},
+        {"@type":"Question","name":"Падает ли мощность на газе?","acceptedAnswer":{"@type":"Answer","text":"На правильно настроенном оборудовании разница почти незаметна в обычной езде. Расход в литрах выше примерно на 10%. Если после установки в другом сервисе машина «тупит», нужна диагностика — от 800 ₽."}},
+        {"@type":"Question","name":"Как часто нужно обслуживать ГБО?","acceptedAnswer":{"@type":"Answer","text":"Регламентное ТО — каждые 10–12 тысяч километров: замена фильтров, проверка герметичности и коррекция настроек. Стоимость от 1 500 ₽."}}
+      ]
+    }
+  ]
+}
+</script>
+</div>
+</div>
+<div class="t-rec" data-record-type="123">
+<!-- Своя форма-модалка (не нужна, если ставим поп-ап Тильды) | блок сайта GASUP. Порядок блоков менять можно, но «Стили» должны идти первыми, «Скрипты» — последними. -->
+<div class="gu">
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-bd" data-close></div>
+  <div class="modal-in">
+    <button class="modal-x" data-close aria-label="Закрыть">✕</button>
+    <h3 id="modalTitle" style="margin-bottom:8px;max-width:88%">Рассчитать стоимость ГБО</h3>
+    <p style="color:var(--tx-2);font-size:15px">Оставьте номер — перезвоним, уточним авто и назовём цену.</p>
+    <form class="form-row" data-form>
+      <input type="hidden" name="service" id="modalService">
+      <input class="inp" type="text" name="name" placeholder="Как вас зовут" autocomplete="name">
+      <input class="inp" type="tel" name="phone" placeholder="+7 (___) ___-__-__" required autocomplete="tel">
+      <input class="inp" type="text" name="car" placeholder="Марка, модель, двигатель" autocomplete="off">
+      <button class="btn btn-gas btn-wide" type="submit">Получить расчёт</button>
+      <p class="consent">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+    </form>
+    <div class="ok" data-ok>Заявка принята. Перезвоним с расчётом — обычно в течение часа в рабочее время.</div>
+  </div>
+</div>
+</div>
+</div>
+<div class="t-rec" data-record-type="123">
+<!-- Скрипты сайта GASUP: калькулятор, прайс, меню, появление секций.
+     Этот блок должен быть ПОСЛЕДНИМ на странице. -->
+<script>
+(function(){
+  var $=function(s,c){return (c||document).querySelector(s)};
+  var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+  var nf = new Intl.NumberFormat('ru-RU');
+
+  $('#yr').textContent = new Date().getFullYear();
+
+  /* ---- header / sticky bar / up ---- */
+  var hdr=$('#hdr'), bar=$('#bar'), up=$('#up');
+  function onScroll(){
+    var y=window.pageYOffset;
+    hdr.classList.toggle('stuck', y>10);
+    bar.classList.toggle('show', y>560);
+    up.classList.toggle('show', y>900);
+  }
+  up.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+
+  /* ---- mobile menu ---- */
+  var mob=$('#mob');
+  $('#burger').addEventListener('click',function(){mob.classList.add('open');document.body.style.overflow='hidden'});
+  function closeMob(){mob.classList.remove('open');document.body.style.overflow=''}
+  $('#mobX').addEventListener('click',closeMob);
+  $$('#mob a').forEach(function(a){a.addEventListener('click',closeMob)});
+
+  /* ---- modal ---- */
+  var modal=$('#modal');
+  function openModal(service){
+    $('#modalService').value=service||'';
+    $('#modalTitle').textContent=service?service:'Рассчитать стоимость ГБО';
+    modal.classList.add('open');document.body.style.overflow='hidden';
+    setTimeout(function(){var i=$('input[type=tel]',modal); if(i) i.focus()},260);
+  }
+  function closeModal(){modal.classList.remove('open');document.body.style.overflow=''}
+  $$('[data-modal]').forEach(function(b){
+    b.addEventListener('click',function(){closeMob();openModal(b.getAttribute('data-service'))});
+  });
+  $$('[data-close]').forEach(function(b){b.addEventListener('click',closeModal)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeModal();closeMob()}});
+
+  /* ---- phone mask ---- */
+  $$('input[type=tel]').forEach(function(inp){
+    inp.addEventListener('input',function(){
+      var d=inp.value.replace(/\D/g,'');
+      if(d[0]==='8')d='7'+d.slice(1);
+      if(d[0]!=='7')d='7'+d;
+      d=d.slice(0,11);
+      var o='+7';
+      if(d.length>1)o+=' ('+d.slice(1,4);
+      if(d.length>=5)o+=') '+d.slice(4,7);
+      if(d.length>=8)o+='-'+d.slice(7,9);
+      if(d.length>=10)o+='-'+d.slice(9,11);
+      inp.value=o;
+      inp.style.borderColor='';
+    });
+  });
+
+  /* ---- forms (подключить отправку в CRM / Telegram / Tilda Forms) ---- */
+  $$('[data-form]').forEach(function(f){
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var phone=f.querySelector('input[type=tel]');
+      if(phone.value.replace(/\D/g,'').length<11){phone.focus();phone.style.borderColor='#ff5252';return}
+      /* TODO: fetch('/your-endpoint',{method:'POST',body:new FormData(f)}) */
+      var ok=f.parentNode.querySelector('[data-ok]');
+      f.style.display='none';
+      if(ok)ok.classList.add('show');
+      if(window.ym)try{ym(0,'reachGoal','lead')}catch(err){}
+    });
+  });
+
+  /* ---- калькулятор экономии ---- */
+  var r1=$('#r1'),r2=$('#r2'),r3=$('#r3'),r4=$('#r4'),r5=$('#r5');
+  var GAS_OVERRUN=1.10; /* на газе расход в литрах выше примерно на 10% */
+  function calc(){
+    var lp100=+r1.value, km=+r2.value, pb=+r3.value, pg=+r4.value, kit=+r5.value;
+    $('#v1').textContent=lp100;
+    $('#v2').textContent=nf.format(km);
+    $('#v3').textContent=pb;
+    $('#v4').textContent=pg;
+    $('#v5').textContent=nf.format(kit);
+
+    var litersPetrol=lp100*km/100;
+    var costPetrol=litersPetrol*pb;
+    var costGas=litersPetrol*GAS_OVERRUN*pg;
+    var saveMonth=Math.max(0,costPetrol-costGas);
+
+    $('#oFuel').textContent=nf.format(Math.round(costPetrol))+' ₽';
+    $('#oMonth').textContent=nf.format(Math.round(saveMonth))+' ₽';
+    $('#oYear').textContent=nf.format(Math.round(saveMonth*12))+' ₽';
+
+    var pay=saveMonth>0?kit/saveMonth:0;
+    var el=$('#oPay');
+    if(!pay||pay>60){el.textContent='> 5 лет';}
+    else if(pay<1){el.textContent='< 1 мес.';}
+    else{
+      var m=Math.round(pay);
+      var t=m%10, h=m%100, w='месяцев';
+      if(t===1&&h!==11)w='месяц'; else if(t>=2&&t<=4&&(h<10||h>=20))w='месяца';
+      el.textContent=m+' '+w;
+    }
+  }
+  [r1,r2,r3,r4,r5].forEach(function(r){r.addEventListener('input',calc)});
+  calc();
+
+  /* ---- переключатель цилиндров ---- */
+  var tg=$('#cylToggle'), knob=$('#knob'), tbs=$$('button',tg);
+  function moveKnob(btn){knob.style.left=btn.offsetLeft+'px';knob.style.width=btn.offsetWidth+'px'}
+  function setCyl(btn){
+    tbs.forEach(function(b){b.classList.toggle('on',b===btn);b.setAttribute('aria-selected',b===btn)});
+    moveKnob(btn);
+    var c=btn.getAttribute('data-cyl');
+    $$('.plan-prices b').forEach(function(b){
+      var v=b.getAttribute('data-p'+c);
+      if(!v||b.textContent===v)return;
+      b.style.transition='opacity .18s,transform .18s';
+      b.style.opacity='0';b.style.transform='translateY(-7px)';
+      setTimeout(function(){
+        b.textContent=v;
+        b.style.opacity='1';b.style.transform='none';
+      },180);
+    });
+    var word=(c==='4')?'цилиндра':'цилиндров';
+    $$('.cyl-cap').forEach(function(s){s.textContent='Под ключ, '+c+' '+word});
+  }
+  tbs.forEach(function(b){b.addEventListener('click',function(){setCyl(b)})});
+  moveKnob(tbs[0]);
+  window.addEventListener('resize',function(){moveKnob($('button.on',tg))});
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){moveKnob($('button.on',tg))});
+
+  /* ---- reveal ---- */
+  var rvs=$$('.rv');
+  function revealPass(){
+    var h=window.innerHeight;
+    for(var i=rvs.length-1;i>=0;i--){
+      var el=rvs[i], r=el.getBoundingClientRect();
+      if(r.top<h*0.92){
+        var sib=Array.prototype.indexOf.call(el.parentNode.children,el);
+        el.style.transitionDelay=Math.min(sib,6)*70+'ms';
+        el.classList.add('in');
+        rvs.splice(i,1);
+      }
+    }
+  }
+
+  /* ---- счётчики ---- */
+  var cnts=$$('[data-count]');
+  function countPass(){
+    var h=window.innerHeight;
+    for(var i=cnts.length-1;i>=0;i--){
+      var el=cnts[i], r=el.getBoundingClientRect();
+      if(r.top<h*0.9&&r.bottom>0){
+        (function(el){
+          var to=+el.getAttribute('data-count'), suf=el.getAttribute('data-suffix')||'';
+          var t0=null, dur=1400;
+          function tick(t){
+            if(!t0)t0=t;
+            var k=Math.min((t-t0)/dur,1), e=1-Math.pow(1-k,3);
+            var v=Math.round(to*e);
+            el.textContent=(v>=1000?nf.format(v):v)+suf;
+            if(k<1)requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+        })(el);
+        cnts.splice(i,1);
+      }
+    }
+  }
+
+  var ticking=false;
+  function raf(){
+    if(ticking)return;ticking=true;
+    requestAnimationFrame(function(){onScroll();revealPass();countPass();ticking=false});
+  }
+  window.addEventListener('scroll',raf,{passive:true});
+  window.addEventListener('resize',raf);
+  window.addEventListener('load',raf);
+  onScroll();revealPass();countPass();
+  setTimeout(raf,400);
+})();
+</script>
+</div>
+</div></body></html>
